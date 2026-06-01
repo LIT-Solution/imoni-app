@@ -1,6 +1,6 @@
 "use client";
-import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { useReveal } from "@/hooks/useReveal";
 
 const pillars = [
   {
@@ -37,18 +37,7 @@ const pillars = [
 ];
 
 export default function TrustSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const elements = sectionRef.current?.querySelectorAll(".reveal");
-    if (!elements) return;
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
-      { threshold: 0.1 }
-    );
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
+  const sectionRef = useReveal(0.1);
 
   return (
     <section
@@ -56,14 +45,12 @@ export default function TrustSection() {
       className="py-16 lg:py-24 relative overflow-hidden"
       style={{ background: "linear-gradient(135deg, #0D0F1A 0%, #141628 50%, #0D0F1A 100%)" }}
     >
-      {/* Dot grid subtle */}
       <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
 
-          {/* Texte gauche */}
-          <div className="reveal lg:w-[34%] shrink-0">
+          <div className="reveal-left lg:w-[34%] shrink-0">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-4">
               La confiance au cœur<br />de chaque{" "}
               <span className="bg-gradient-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] bg-clip-text text-transparent">rencontre</span>
@@ -73,10 +60,8 @@ export default function TrustSection() {
             </p>
           </div>
 
-          {/* Séparateur vertical */}
           <div className="hidden lg:block w-px self-stretch bg-white/10 shrink-0" />
 
-          {/* Piliers sur une ligne */}
           <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-10">
             {pillars.map((p, i) => (
               <div
@@ -85,16 +70,13 @@ export default function TrustSection() {
               >
                 <div
                   className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-105"
-                  style={{
-                    backgroundColor: "transparent",
-                    border: `2px solid ${p.color}60`,
-                  }}
+                  style={{ border: `2px solid ${p.color}60` }}
                 >
                   {p.imgSrc ? (
                     <Image src={p.imgSrc} alt="" width={28} height={28} style={{ filter: `invert(75%) sepia(50%) saturate(800%) hue-rotate(5deg) brightness(105%)` }} />
                   ) : (
                     <svg className="w-7 h-7" fill="none" stroke={p.color} viewBox="0 0 24 24" strokeWidth={1.6}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d={p.icon} />
+                      <path strokeLinecap="round" strokeLinejoin="round" d={p.icon!} />
                     </svg>
                   )}
                 </div>

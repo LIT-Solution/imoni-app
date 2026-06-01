@@ -1,36 +1,25 @@
 "use client";
-import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { useReveal } from "@/hooks/useReveal";
+
 
 export default function HeroSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const elements = sectionRef.current?.querySelectorAll(".reveal");
-    if (!elements) return;
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
-      { threshold: 0.1 }
-    );
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
+  const sectionRef = useReveal(0.1);
   return (
     <section
       ref={sectionRef}
       className="relative min-h-screen flex items-center overflow-hidden bg-[#0D0F1A]"
     >
-      <Image
-        src="/fond_accueille.png"
-        alt=""
-        fill
-        className="object-cover object-center"
-        priority
-      />
-      {/* Overlay dégradé — gauche opaque pour lisibilité texte, droite transparent pour les phones */}
+      <div className="absolute inset-0">
+        <Image
+          src="/fond_accueille.png"
+          alt=""
+          fill
+          className="object-cover object-center"
+          priority
+        />
+      </div>
       <div className="absolute inset-0 bg-gradient-to-r from-[#0D0F1A]/55 via-[#0D0F1A]/20 to-transparent pointer-events-none" />
-      {/* Vignette basse */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0D0F1A]/30 to-transparent pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:pl-0 lg:pr-0 pt-24 pb-8 w-full">
@@ -38,31 +27,26 @@ export default function HeroSection() {
 
           {/* Colonne gauche */}
           <div className="flex flex-col justify-start space-y-7 lg:pr-4 pt-20 lg:-ml-12">
-
-            {/* Badge */}
-            <div className="reveal">
+            <div className="reveal-left">
               <span className="inline-flex items-center bg-purple-900/30 border border-purple-400/30 text-white/90 text-[11px] font-semibold px-5 py-2 rounded-full tracking-[0.15em] uppercase">
                 Le site de rencontre immobilier
               </span>
             </div>
 
-            {/* Titre */}
-            <div className="reveal reveal-delay-1">
-              <h1 className="text-4xl sm:text-5xl lg:text-[4.5rem] xl:text-[5rem] font-extrabold text-white leading-[1.05] tracking-tight">
+            <div className="reveal-left reveal-delay-1">
+              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold text-white leading-[1.08] tracking-tight">
                 L&apos;immobilier<br />devrait être
               </h1>
-              <h1 className="text-4xl sm:text-5xl lg:text-[4.5rem] xl:text-[5rem] font-extrabold leading-[1.1] tracking-tight bg-gradient-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] bg-clip-text text-transparent">
+              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.08] tracking-tight bg-linear-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] bg-clip-text text-transparent">
                 une rencontre.
               </h1>
             </div>
 
-            {/* Sous-titre */}
-            <p className="reveal reveal-delay-2 text-white text-base sm:text-[1.05rem] leading-relaxed max-w-md">
+            <p className="reveal-left reveal-delay-2 text-white text-base sm:text-[1.05rem] leading-relaxed max-w-md">
               Imoni connecte vendeurs, acquéreurs et professionnels<br className="hidden sm:block" /> dans un écosystème intelligent, neutre et sécurisé.
             </p>
 
-            {/* Features */}
-            <div className="reveal reveal-delay-3 flex flex-wrap gap-x-6 gap-y-1">
+            <div className="reveal reveal-delay-3 flex flex-wrap gap-x-6 gap-y-1" style={{ transitionDelay: "0.35s" }}>
               {[
                 { icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z", line1: "Neutre", line2: "et impartial" },
                 { icon: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z", line1: "Navigation", line2: "intelligente" },
@@ -81,7 +65,6 @@ export default function HeroSection() {
               ))}
             </div>
 
-            {/* Boutons store */}
             <div className="reveal reveal-delay-4 flex flex-wrap gap-3">
               <a href="#" className="flex items-center gap-4 bg-black/80 hover:bg-black border border-white/15 text-white px-6 py-4 rounded-xl transition-all duration-200 hover:shadow-xl hover:shadow-black/40 hover:-translate-y-0.5 backdrop-blur-sm">
                 <svg className="w-8 h-8 shrink-0" viewBox="0 0 24 24" fill="currentColor">
@@ -108,21 +91,19 @@ export default function HeroSection() {
           </div>
 
           {/* Colonne droite — phones */}
-          <div className="relative flex justify-center lg:justify-end items-start lg:translate-x-8 pt-0">
-            <div className="relative drop-shadow-2xl -translate-y-12 translate-x-16">
-              <div className="relative w-[440px] sm:w-[520px] lg:w-[600px] h-[520px] sm:h-[620px] lg:h-[720px]">
+          <div className="reveal-right reveal-delay-2 relative flex justify-center lg:justify-end items-start lg:translate-x-8 pt-0">
+            <div className="relative drop-shadow-2xl -translate-y-12 -translate-x-20">
+              <div className="relative w-[340px] sm:w-[400px] lg:w-[460px] h-[440px] sm:h-[520px] lg:h-[600px]">
                 <Image
                   src="/mockup-iphone-2.png"
                   alt="Imoni app"
                   fill
                   className="object-contain object-bottom"
                   priority
-                  quality={100}
                   sizes="(max-width: 640px) 440px, (max-width: 1024px) 520px, 600px"
                 />
               </div>
 
-              {/* Coach card — bas droite du téléphone */}
               <div className="absolute -bottom-8 right-0 z-30 bg-white rounded-3xl shadow-2xl px-5 py-4 flex items-center gap-4 w-64">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#E91E8C] to-purple-600 flex items-center justify-center shrink-0 shadow-md shadow-pink-400/40">
                   <div className="flex items-center gap-[2px] h-4">
@@ -147,7 +128,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Vague de transition vers la section suivante */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
         <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" className="w-full h-20 sm:h-28">
           <path d="M0 60L1440 60L1440 20C1200 60 960 0 720 20C480 40 240 0 0 20L0 60Z" fill="white" />

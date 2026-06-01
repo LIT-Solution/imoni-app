@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Playfair_Display } from "next/font/google";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -39,7 +41,11 @@ export default function RootLayout({
       lang="fr"
       className={`${dmSans.variable} ${playfair.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white">{children}</body>
+      <body className="min-h-full flex flex-col bg-white">
+        <Navbar />
+        <main className="flex-1 flex flex-col overflow-x-hidden">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

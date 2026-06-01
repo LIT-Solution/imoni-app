@@ -23,27 +23,23 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="shrink-0 flex items-center">
-            <Image src="/imoni-logo.svg" alt="Imoni" width={140} height={54} priority />
+            <Image src="/imoni-logo.svg" alt="Imoni" width={140} height={54} priority style={{ height: "auto" }} />
           </Link>
 
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-6 xl:gap-8">
             {[
-              { label: "Accueil", href: "/", active: true },
               { label: "Acheteur", href: "/acheteur" },
               { label: "Vendeur", href: "/vendeur" },
-              { label: "Pro de l'immo", href: "/pro-immo" },
-              { label: "Autres pros", href: "/autres-pros" },
-              { label: "Pourquoi Imoni", href: "/pourquoi" },
+              { label: "Investisseur", href: "/investisseur" },
+              { label: "Professionnels", href: "/professionnels" },
+              { label: "Partenaires", href: "/partenaires" },
+              { label: "À Propos", href: "/a-propos" },
             ].map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className={`text-base font-medium transition-colors duration-200 ${
-                  item.active
-                    ? "text-white border-b-2 border-[#E91E8C] pb-0.5"
-                    : "text-white/90 hover:text-white"
-                }`}
+                className="text-base font-medium transition-colors duration-200 text-white/90 hover:text-white"
               >
                 {item.label}
               </Link>
@@ -54,7 +50,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="#download"
-              className="hidden sm:inline-flex items-center bg-gradient-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-pink-500/30 hover:-translate-y-0.5 hover:opacity-90"
+              className="hidden sm:inline-flex items-center bg-linear-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-pink-500/30 hover:-translate-y-0.5 hover:opacity-90"
             >
               Télécharger l&apos;app
             </Link>
@@ -78,12 +74,12 @@ export default function Navbar() {
         {menuOpen && (
           <div className="lg:hidden bg-[#0D0F1A]/98 backdrop-blur-md pb-4 border-t border-white/10">
             {[
-              { label: "Accueil", href: "/" },
               { label: "Acheteur", href: "/acheteur" },
               { label: "Vendeur", href: "/vendeur" },
-              { label: "Pro de l'immo", href: "/pro-immo" },
-              { label: "Autres pros", href: "/autres-pros" },
-              { label: "Pourquoi Imoni", href: "/pourquoi" },
+              { label: "Investisseur", href: "/investisseur" },
+              { label: "Professionnels", href: "/professionnels" },
+              { label: "Partenaires", href: "/partenaires" },
+              { label: "À Propos", href: "/a-propos" },
             ].map((item) => (
               <Link
                 key={item.label}

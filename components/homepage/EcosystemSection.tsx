@@ -1,33 +1,16 @@
 "use client";
-import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { useReveal } from "@/hooks/useReveal";
+import { Check } from "@/components/ui/Check";
 
 export default function EcosystemSection() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const elements = sectionRef.current?.querySelectorAll(".reveal");
-    if (!elements) return;
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
-      { threshold: 0.05 }
-    );
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
-  const Check = ({ color }: { color: string }) => (
-    <svg className="w-5 h-5 shrink-0 mt-0.5" viewBox="0 0 20 20" fill="none">
-      <path d="M5 10l3.5 3.5L15 7" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
+  const sectionRef = useReveal(0.05);
 
   return (
     <section ref={sectionRef} className="py-20 lg:py-28 bg-white">
       <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Titre */}
-        <div className="reveal text-center mb-14">
+        <div className="reveal-scale text-center mb-14">
           <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold text-[#0D0F1A] leading-tight">
             Un écosystème immobilier{" "}
             <span className="bg-gradient-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] bg-clip-text text-transparent">collaboratif</span>
@@ -36,11 +19,10 @@ export default function EcosystemSection() {
           </h2>
         </div>
 
-        {/* Cards */}
         <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-5">
 
           {/* Card 1 — Acheteur / Vendeur */}
-          <div className="reveal reveal-delay-1 bg-pink-50 border border-pink-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
+          <div className="reveal-scale reveal-delay-1 bg-pink-50 border border-pink-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow">
                 <Image src="/portrait/femme1.webp" alt="Acheteur / Vendeur" width={200} height={200} className="object-cover object-top w-full h-full" />
@@ -69,17 +51,21 @@ export default function EcosystemSection() {
             </ul>
 
             <div className="mt-auto pt-6 flex flex-col gap-2">
-              <button className="w-full bg-[#E91E8C] hover:bg-[#C4177A] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 transition-colors">
-                En savoir plus acheteur <span>→</span>
+              <button className="group relative overflow-hidden w-full bg-[#E91E8C] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_10px_30px_-5px_rgba(233,30,140,0.4)]">
+                <span className="relative z-10">En savoir plus acheteur</span>
+                <span className="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
               </button>
-              <button className="w-full border border-[#E91E8C] hover:bg-[#E91E8C]/8 text-[#E91E8C] text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 transition-colors">
-                En savoir plus vendeur <span>→</span>
+              <button className="group relative overflow-hidden w-full border border-[#E91E8C] text-[#E91E8C] text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_10px_30px_-5px_rgba(233,30,140,0.3)] hover:text-white">
+                <span className="relative z-10">En savoir plus vendeur</span>
+                <span className="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                <span className="absolute inset-0 bg-[#E91E8C] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-400" />
               </button>
             </div>
           </div>
 
           {/* Card 2 — Pro de l'immo */}
-          <div className="reveal reveal-delay-2 bg-blue-50 border border-blue-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
+          <div className="reveal-scale reveal-delay-3 bg-blue-50 border border-blue-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow">
                 <Image src="/portrait/homme2.webp" alt="Pro de l'immo" width={200} height={200} className="object-cover object-top w-full h-full" />
@@ -100,14 +86,16 @@ export default function EcosystemSection() {
             </ul>
 
             <div className="mt-auto pt-6 flex flex-col justify-center min-h-[7rem]">
-              <button className="w-full bg-[#1D6FEB] hover:bg-[#1558C8] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 transition-colors">
-                En savoir plus <span>→</span>
+              <button className="group relative overflow-hidden w-full bg-[#1D6FEB] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_10px_30px_-5px_rgba(29,111,235,0.4)]">
+                <span className="relative z-10">En savoir plus</span>
+                <span className="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
               </button>
             </div>
           </div>
 
           {/* Card 3 — Investisseur */}
-          <div className="reveal reveal-delay-3 bg-emerald-50 border border-emerald-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
+          <div className="reveal-scale reveal-delay-5 bg-emerald-50 border border-emerald-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow">
                 <Image src="/portrait/homme.webp" alt="Investisseur" width={200} height={200} className="object-cover object-top w-full h-full" />
@@ -128,14 +116,16 @@ export default function EcosystemSection() {
             </ul>
 
             <div className="mt-auto pt-6 flex flex-col justify-center min-h-[7rem]">
-              <button className="w-full bg-[#10B981] hover:bg-[#059669] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 transition-colors">
-                En savoir plus <span>→</span>
+              <button className="group relative overflow-hidden w-full bg-[#10B981] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_10px_30px_-5px_rgba(16,185,129,0.4)]">
+                <span className="relative z-10">En savoir plus</span>
+                <span className="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
               </button>
             </div>
           </div>
 
           {/* Card 4 — Autres professionnels */}
-          <div className="reveal reveal-delay-4 bg-purple-50 border border-purple-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
+          <div className="reveal-scale reveal-delay-7 bg-purple-50 border border-purple-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
             <div className="flex items-center gap-3 mb-5">
               <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow">
                 <Image src="/portrait/femme2.webp" alt="Autres professionnels" width={200} height={200} className="object-cover object-top w-full h-full" />
@@ -147,7 +137,7 @@ export default function EcosystemSection() {
 
             <h3 className="font-extrabold text-[#0D0F1A] text-2xl leading-tight">Autres professionnels</h3>
             <p className="text-[#8B5CF6] text-lg font-semibold mt-1 mb-2">de l&apos;immobilier</p>
-            <p className="text-[#0D0F1A] text-sm leading-relaxed mb-3 min-h-[5rem]">Intervenez au bon moment auprès d'utilisateurs qualifiés grâce à des notifications.</p>
+            <p className="text-[#0D0F1A] text-sm leading-relaxed mb-3 min-h-[5rem]">Intervenez au bon moment auprès d&apos;utilisateurs qualifiés grâce à des notifications.</p>
 
             <ul className="space-y-3">
               {["Notifications selon l'avancement", "Mise en relation au moment opportun", "Développement de votre visibilité", "Réseau collaboratif et intelligent", "Outils de gestion dédiés"].map(f => (
@@ -156,14 +146,15 @@ export default function EcosystemSection() {
             </ul>
 
             <div className="mt-auto pt-6 flex flex-col justify-center min-h-[7rem]">
-              <button className="w-full bg-[#7C22E8] hover:bg-[#6617CC] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 transition-colors">
-                En savoir plus <span>→</span>
+              <button className="group relative overflow-hidden w-full bg-[#7C22E8] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_10px_30px_-5px_rgba(124,34,232,0.4)]">
+                <span className="relative z-10">En savoir plus</span>
+                <span className="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
               </button>
             </div>
           </div>
         </div>
 
-        {/* Barre bas */}
         <div className="reveal mt-12 bg-gray-50 rounded-2xl border border-gray-100 px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-6">
           <div className="flex items-start gap-4 flex-1">
             <div className="w-14 h-14 rounded-full bg-[#E91E8C] flex items-center justify-center shrink-0">
