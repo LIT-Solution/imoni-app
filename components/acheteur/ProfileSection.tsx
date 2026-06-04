@@ -8,6 +8,7 @@ const features = [
     description:
       "Présentez votre projet, vos critères et votre motivation pour inspirer confiance.",
     color: "#8B5CF6",
+    colorLight: "rgba(139, 92, 246, 0.08)",
     filled: false,
   },
   {
@@ -16,6 +17,7 @@ const features = [
     description:
       "Soyez parmi les premiers informés de biens pas encore diffusés sur le marché.",
     color: "#0D0F1A",
+    colorLight: "rgba(13, 15, 26, 0.06)",
     filled: false,
   },
   {
@@ -24,6 +26,7 @@ const features = [
     description:
       "Un vendeur peut être séduit par votre profil et vous proposer son bien.",
     color: "#E91E8C",
+    colorLight: "rgba(233, 30, 140, 0.08)",
     filled: true,
   },
   {
@@ -32,6 +35,7 @@ const features = [
     description:
       "Les professionnels vous partagent des opportunités et baisses de prix exclusives.",
     color: "#8B5CF6",
+    colorLight: "rgba(139, 92, 246, 0.08)",
     filled: false,
   },
 ];
@@ -62,26 +66,40 @@ export default function ProfileSection() {
           {features.map((feat, i) => (
             <div
               key={feat.title}
-              className={`reveal reveal-delay-${i + 1} bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center`}
+              className={`reveal reveal-delay-${i + 1} group relative bg-white rounded-2xl p-7 text-center transition-all duration-400 hover:-translate-y-2 cursor-default overflow-hidden`}
+              style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)" }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = `0 8px 32px ${feat.colorLight}, 0 4px 16px rgba(0,0,0,0.08)`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04)";
+              }}
             >
+              {/* Top accent line */}
               <div
-                className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-5"
+                className="absolute top-0 left-1/2 -translate-x-1/2 h-[3px] w-10 rounded-b-full transition-all duration-400 group-hover:w-full group-hover:left-0 group-hover:translate-x-0 group-hover:rounded-none"
+                style={{ backgroundColor: feat.color }}
+              />
+
+              <div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5 transition-transform duration-400 group-hover:scale-110 group-hover:rotate-3"
                 style={{ backgroundColor: feat.color }}
               >
                 {feat.filled ? (
-                  <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d={feat.icon} />
                   </svg>
                 ) : (
-                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
                     <path strokeLinecap="round" strokeLinejoin="round" d={feat.icon} />
                   </svg>
                 )}
               </div>
-              <h3 className="font-bold text-[#0D0F1A] text-base mb-2">
+
+              <h3 className="font-bold text-[#0D0F1A] text-[15px] mb-2.5 leading-snug">
                 {feat.title}
               </h3>
-              <p className="text-gray-500 text-sm leading-relaxed">
+              <p className="text-gray-400 text-sm leading-relaxed">
                 {feat.description}
               </p>
             </div>

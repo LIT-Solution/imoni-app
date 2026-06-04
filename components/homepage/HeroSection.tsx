@@ -19,14 +19,14 @@ export default function HeroSection() {
           priority
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0D0F1A]/55 via-[#0D0F1A]/20 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0D0F1A]/30 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-r from-[#0D0F1A]/90 via-[#0D0F1A]/65 via-50% to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-t from-[#0D0F1A]/40 to-transparent pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:pl-0 lg:pr-0 pt-24 pb-8 w-full">
         <div className="grid lg:grid-cols-[52%_48%] gap-0 items-start min-h-[calc(100vh-6rem)]">
 
           {/* Colonne gauche */}
-          <div className="flex flex-col justify-start space-y-7 lg:pr-4 pt-20 lg:-ml-12">
+          <div className="flex flex-col justify-start space-y-7 lg:pr-4 pt-20 lg:ml-8">
             <div className="reveal-left">
               <span className="inline-flex items-center bg-purple-900/30 border border-purple-400/30 text-white/90 text-[11px] font-semibold px-5 py-2 rounded-full tracking-[0.15em] uppercase">
                 Le site de rencontre immobilier
