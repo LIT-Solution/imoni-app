@@ -20,7 +20,7 @@ const innovations = [
     title: "Offre d'achat électronique sécurisée",
     description:
       "Achetez entre particuliers en toute sérénité grâce à une offre d'achat électronique claire et exploitable par votre notaire.",
-    image: "/acheteur/offre_achat_tel.webp",
+    image: "/acheteur/offre_achat.webp",
     gradient: "from-[#E91E8C] to-[#C4177A]",
     color: "#E91E8C",
     bgFrom: "#FFF0F7",
@@ -42,7 +42,7 @@ const innovations = [
     title: "Votre coach vocal immobilier 24h/24",
     description:
       "Votre coach vous accompagne à chaque étape, répond à vos questions et vous aide à trouver le point d'équilibre entre acheteur et vendeur.",
-    image: "/acheteur/coach_vocal_tel.webp",
+    image: "/acheteur/coach_vocal.webp",
     gradient: "from-[#3B82F6] to-[#1D4ED8]",
     color: "#3B82F6",
     bgFrom: "#EFF6FF",
