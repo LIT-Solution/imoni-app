@@ -5,7 +5,7 @@ export default function InvestisseurCta() {
   const sectionRef = useReveal(0.1);
 
   return (
-    <section ref={sectionRef} className="py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="relative z-10 py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         <div
           className="reveal-scale rounded-3xl p-10 lg:p-14 flex flex-col lg:flex-row items-center justify-between gap-8"

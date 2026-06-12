@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import InvestisseurHero from "@/components/investisseur/InvestisseurHero";
 import ProfilStrategie from "@/components/investisseur/ProfilStrategie";
 import OpportunitesSection from "@/components/investisseur/OpportunitesSection";
-import ConfianceSection from "@/components/investisseur/ConfianceSection";
 import InvestisseurCta from "@/components/investisseur/InvestisseurCta";
+import ReassuranceBand from "@/components/investisseur/ReassuranceBand";
 
 export const metadata: Metadata = {
   title: "Investisseur - Imoni",
@@ -16,8 +16,11 @@ export default function InvestisseurPage() {
       <InvestisseurHero />
       <ProfilStrategie />
       <OpportunitesSection />
-      <ConfianceSection />
-      <InvestisseurCta />
+      <div className="relative">
+        <ReassuranceBand />
+        <div className="h-[50vh]" />
+        <InvestisseurCta />
+      </div>
     </>
   );
 }

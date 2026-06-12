@@ -146,7 +146,14 @@ npm run start
 
 - [x] Homepage complète
 - [x] Page Acheteur complète
-- [ ] **Page Vendeur** — à construire (en cours)
+- [x] Page Vendeur complète
+- [ ] **Page Investisseur** — en cours
+  - [x] Hero (fond image + sir + phone + badge cercle)
+  - [x] ProfilStrategie (carousel stack auto-slide)
+  - [x] OpportunitesSection (timeline verticale alternée + images)
+  - [x] ReassuranceBand (bande dark 4 items)
+  - [x] InvestisseurCta
+  - [ ] **⚠️ Revoir la transition ReassuranceBand → CTA** — l'effet sticky/scroll-over ne fonctionne pas bien, le CTA n'a pas le temps de recouvrir la bande. À repenser (parallax, suppression de la bande, ou intégration dans le CTA).
 - [ ] Page Pro de l'immo
 - [ ] Page Autres pros
 - [ ] Page Pourquoi Imoni

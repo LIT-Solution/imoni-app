@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function FooterNav() {
   return (
-    <footer className="relative bg-[#0D0F1A] overflow-hidden">
+    <footer className="relative z-10 bg-[#0D0F1A] overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Colonnes de liens */}
