@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Playfair_Display } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import FooterNav from "@/components/layout/FooterNav";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -44,7 +44,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-white overflow-x-hidden">
         <Navbar />
         <main className="flex-1 flex flex-col">{children}</main>
-        <Footer />
+        <FooterNav />
       </body>
     </html>
   );

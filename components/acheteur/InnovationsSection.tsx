@@ -76,9 +76,16 @@ export default function InnovationsSection() {
   const translateX = -(progress * maxOffset);
 
   return (
-    <section ref={titleRef} className="bg-gray-50">
+    <section ref={titleRef} className="bg-white">
       <div ref={sectionRef} style={{ height: `${totalCards * 100}vh` }}>
         <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center">
+          {/* Background décoration */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-[#8B5CF6]/6 blur-[120px]" />
+            <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#E91E8C]/5 blur-[120px]" />
+            <div className="absolute top-[40%] left-[40%] w-[300px] h-[300px] rounded-full bg-[#FF8C00]/4 blur-[100px]" />
+          </div>
+
           {/* Title */}
           <div className="text-center max-w-3xl mx-auto mb-6 px-4">
             <span className="inline-block text-[#8B5CF6] text-xs font-bold tracking-widest uppercase mb-3">

@@ -2,6 +2,7 @@ import HeroSection from "@/components/homepage/HeroSection";
 import EcosystemSection from "@/components/homepage/EcosystemSection";
 import TrustSection from "@/components/homepage/TrustSection";
 import WhyImoniSection from "@/components/homepage/WhyImoniSection";
+import FooterCTA from "@/components/layout/Footer";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <EcosystemSection />
       <TrustSection />
       <WhyImoniSection />
+      <FooterCTA />
     </>
   );
 }

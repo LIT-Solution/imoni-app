@@ -1,17 +1,23 @@
 import type { Metadata } from "next";
+import VendeurHero from "@/components/vendeur/VendeurHero";
+import AvantagesSection from "@/components/vendeur/AvantagesSection";
+import SecuriteSection from "@/components/vendeur/SecuriteSection";
+import AlgorithmeSection from "@/components/vendeur/AlgorithmeSection";
+import VendeurCta from "@/components/vendeur/VendeurCta";
 
 export const metadata: Metadata = {
   title: "Vendeur - Imoni",
-  description: "Vendez votre bien rapidement et au meilleur prix avec Imoni.",
+  description: "Votre bien mérite la bonne rencontre. Rencontrez des acquéreurs qualifiés et vendez dans les meilleures conditions avec Imoni.",
 };
 
 export default function VendeurPage() {
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-[#0D0F1A] mb-4">Vendeur</h1>
-        <p className="text-gray-500">Page en construction.</p>
-      </div>
-    </section>
+    <>
+      <VendeurHero />
+      <AvantagesSection />
+      <SecuriteSection />
+      <AlgorithmeSection />
+      <VendeurCta />
+    </>
   );
 }
