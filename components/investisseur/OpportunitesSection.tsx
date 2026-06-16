@@ -30,7 +30,10 @@ export default function OpportunitesSection() {
 
   return (
     <section ref={sectionRef} className="py-20 lg:py-28 bg-white relative overflow-hidden">
-      <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="absolute -top-20 -left-20 w-[400px] h-[400px] rounded-full opacity-10 blur-xl pointer-events-none bg-[#8B5CF6]" />
+      <div className="absolute -bottom-20 -right-20 w-[350px] h-[350px] rounded-full opacity-8 blur-xl pointer-events-none bg-[#8B5CF6]" />
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, #8B5CF6 1.5px, transparent 1.5px)", backgroundSize: "30px 30px" }} />
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="reveal-scale text-center mb-16">
           <span className="inline-block text-[#8B5CF6] text-xs font-bold tracking-[0.2em] uppercase mb-4">Pourquoi Imoni ?</span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0D0F1A] leading-tight">

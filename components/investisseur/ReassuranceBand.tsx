@@ -25,7 +25,7 @@ const items = [
 
 export default function ReassuranceBand() {
   return (
-    <div className="sticky top-0 z-0 py-16 lg:py-20 overflow-hidden" style={{ background: "#0D0F1A" }}>
+    <div className="py-16 lg:py-20 overflow-hidden" style={{ background: "#0D0F1A" }}>
       <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)", backgroundSize: "28px 28px" }} />
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">

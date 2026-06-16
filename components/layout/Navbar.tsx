@@ -1,11 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isLightHero = pathname === "/partenaires";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -23,7 +26,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="shrink-0 flex items-center">
-            <Image src="/imoni-logo.svg" alt="Imoni" width={140} height={54} priority style={{ height: "auto" }} />
+            <Image src={!scrolled && isLightHero ? "/partenaire/logo_imoni_noir.webp" : "/imoni-logo.svg"} alt="Imoni" width={140} height={40} priority className="h-[58px] w-auto" />
           </Link>
 
           {/* Desktop nav */}
@@ -39,7 +42,7 @@ export default function Navbar() {
               <Link
                 key={item.label}
                 href={item.href}
-                className="text-base font-medium transition-colors duration-200 text-white/90 hover:text-white"
+                className={`text-base font-medium transition-colors duration-200 ${!scrolled && isLightHero ? "text-[#0D0F1A]/80 hover:text-[#0D0F1A]" : "text-white/90 hover:text-white"}`}
               >
                 {item.label}
               </Link>
