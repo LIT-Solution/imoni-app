@@ -156,12 +156,6 @@ export default function VendeurHero() {
 
         </div>
       </div>
-
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
-        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" className="w-full h-20 sm:h-28">
-          <path d="M0 60L1440 60L1440 20C1200 60 960 0 720 20C480 40 240 0 0 20L0 60Z" fill="white" />
-        </svg>
-      </div>
     </section>
   );
 }

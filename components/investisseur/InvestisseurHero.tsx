@@ -93,7 +93,7 @@ export default function InvestisseurHero() {
             unoptimized
             className="object-contain"
             priority
-            style={{ width: "600px", height: "auto" }}
+            style={{ width: "600px", height: "auto", maxWidth: "100%" }}
           />
           <div className="absolute -right-80 -bottom-8 w-140">
             <Image
@@ -105,7 +105,7 @@ export default function InvestisseurHero() {
               unoptimized
               className="drop-shadow-2xl"
               priority
-              style={{ width: "100%", height: "auto" }}
+              style={{ width: "100%", height: "auto", maxWidth: "100%" }}
             />
 
             {/* Badge "Une première en France" */}

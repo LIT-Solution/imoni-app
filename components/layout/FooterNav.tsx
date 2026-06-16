@@ -92,8 +92,8 @@ export default function FooterNav() {
           <p className="text-white/25 text-xs">© 2025 Imoni. Tous droits réservés.</p>
           <div className="flex flex-wrap justify-center gap-5 text-xs">
             <Link href="#" className="text-white/25 hover:text-white/50 transition-colors">Mentions légales</Link>
-            <Link href="#" className="text-white/25 hover:text-white/50 transition-colors">Politique de confidentialité</Link>
-            <Link href="#" className="text-white/25 hover:text-white/50 transition-colors">CGU</Link>
+            <Link href="/confidentialite" className="text-white/25 hover:text-white/50 transition-colors">Politique de confidentialité</Link>
+            <Link href="/cgu" className="text-white/25 hover:text-white/50 transition-colors">CGU</Link>
             <Link href="#" className="text-white/25 hover:text-white/50 transition-colors">Cookies</Link>
           </div>
         </div>

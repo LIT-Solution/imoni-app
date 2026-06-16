@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useReveal } from "@/hooks/useReveal";
 import { Check } from "@/components/ui/Check";
 
@@ -51,16 +52,16 @@ export default function EcosystemSection() {
             </ul>
 
             <div className="mt-auto pt-6 flex flex-col gap-2">
-              <button className="group relative overflow-hidden w-full bg-[#E91E8C] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_10px_30px_-5px_rgba(233,30,140,0.4)]">
+              <Link href="/acheteur" className="group relative overflow-hidden w-full bg-[#E91E8C] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_10px_30px_-5px_rgba(233,30,140,0.4)]">
                 <span className="relative z-10">En savoir plus acheteur</span>
                 <span className="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-1.5">→</span>
                 <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
-              </button>
-              <button className="group relative overflow-hidden w-full border border-[#E91E8C] text-[#E91E8C] text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_10px_30px_-5px_rgba(233,30,140,0.3)] hover:text-white">
+              </Link>
+              <Link href="/vendeur" className="group relative overflow-hidden w-full border border-[#E91E8C] text-[#E91E8C] text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_10px_30px_-5px_rgba(233,30,140,0.3)] hover:text-white">
                 <span className="relative z-10">En savoir plus vendeur</span>
                 <span className="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-1.5">→</span>
                 <span className="absolute inset-0 bg-[#E91E8C] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-400" />
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -86,11 +87,11 @@ export default function EcosystemSection() {
             </ul>
 
             <div className="mt-auto pt-6 flex flex-col justify-center min-h-[7rem]">
-              <button className="group relative overflow-hidden w-full bg-[#1D6FEB] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_10px_30px_-5px_rgba(29,111,235,0.4)]">
+              <Link href="/professionnels" className="group relative overflow-hidden w-full bg-[#1D6FEB] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_10px_30px_-5px_rgba(29,111,235,0.4)]">
                 <span className="relative z-10">En savoir plus</span>
                 <span className="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-1.5">→</span>
                 <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -116,11 +117,11 @@ export default function EcosystemSection() {
             </ul>
 
             <div className="mt-auto pt-6 flex flex-col justify-center min-h-[7rem]">
-              <button className="group relative overflow-hidden w-full bg-[#10B981] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_10px_30px_-5px_rgba(16,185,129,0.4)]">
+              <Link href="/investisseur" className="group relative overflow-hidden w-full bg-[#10B981] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_10px_30px_-5px_rgba(16,185,129,0.4)]">
                 <span className="relative z-10">En savoir plus</span>
                 <span className="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-1.5">→</span>
                 <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -146,11 +147,11 @@ export default function EcosystemSection() {
             </ul>
 
             <div className="mt-auto pt-6 flex flex-col justify-center min-h-[7rem]">
-              <button className="group relative overflow-hidden w-full bg-[#7C22E8] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_10px_30px_-5px_rgba(124,34,232,0.4)]">
+              <Link href="/partenaires" className="group relative overflow-hidden w-full bg-[#7C22E8] text-white text-sm font-semibold py-2.5 rounded-md flex items-center justify-between px-4 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-[1.04] hover:shadow-[0_10px_30px_-5px_rgba(124,34,232,0.4)]">
                 <span className="relative z-10">En savoir plus</span>
                 <span className="relative z-10 inline-block transition-transform duration-300 group-hover:translate-x-1.5">→</span>
                 <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>

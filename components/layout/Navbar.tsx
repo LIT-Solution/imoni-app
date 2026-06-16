@@ -8,7 +8,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isLightHero = pathname === "/partenaires";
+  const isLightHero = pathname === "/partenaires" || pathname === "/cgu" || pathname === "/confidentialite";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -19,14 +19,18 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-[#0D0F1A]/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+        scrolled
+          ? isLightHero
+            ? "bg-white/95 backdrop-blur-md shadow-lg"
+            : "bg-[#0D0F1A]/95 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link href="/" className="shrink-0 flex items-center">
-            <Image src={!scrolled && isLightHero ? "/partenaire/logo_imoni_noir.webp" : "/imoni-logo.svg"} alt="Imoni" width={140} height={40} priority className="h-[58px] w-auto" />
+            <Image src={isLightHero ? "/partenaire/logo_imoni_noir.webp" : "/imoni-logo.svg"} alt="Imoni" width={140} height={40} priority className="h-14.5 w-auto" />
           </Link>
 
           {/* Desktop nav */}
@@ -37,14 +41,23 @@ export default function Navbar() {
               { label: "Investisseur", href: "/investisseur" },
               { label: "Professionnels", href: "/professionnels" },
               { label: "Partenaires", href: "/partenaires" },
-              { label: "À Propos", href: "/a-propos" },
+              { label: "Contact", href: "/contact" },
             ].map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className={`text-base font-medium transition-colors duration-200 ${!scrolled && isLightHero ? "text-[#0D0F1A]/80 hover:text-[#0D0F1A]" : "text-white/90 hover:text-white"}`}
+                className={`relative text-base font-medium transition-colors duration-200 pb-1 ${
+                  pathname === item.href
+                    ? isLightHero ? "text-[#0D0F1A]" : "text-white"
+                    : isLightHero
+                      ? "text-[#0D0F1A]/80 hover:text-[#E91E8C]"
+                      : "text-white/90 hover:text-[#E91E8C]"
+                }`}
               >
                 {item.label}
+                {pathname === item.href && (
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 rounded-full bg-linear-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00]" />
+                )}
               </Link>
             ))}
           </div>
@@ -82,12 +95,14 @@ export default function Navbar() {
               { label: "Investisseur", href: "/investisseur" },
               { label: "Professionnels", href: "/professionnels" },
               { label: "Partenaires", href: "/partenaires" },
-              { label: "À Propos", href: "/a-propos" },
+              { label: "Contact", href: "/contact" },
             ].map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                className="block px-4 py-3 text-white/80 hover:text-white text-sm font-medium"
+                className={`block px-4 py-3 text-sm font-medium transition-colors duration-200 ${
+                  pathname === item.href ? "text-[#E91E8C]" : "text-white/80 hover:text-[#E91E8C]"
+                }`}
                 onClick={() => setMenuOpen(false)}
               >
                 {item.label}

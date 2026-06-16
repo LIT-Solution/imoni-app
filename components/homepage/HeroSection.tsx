@@ -28,21 +28,21 @@ export default function HeroSection() {
           {/* Colonne gauche */}
           <div className="flex flex-col justify-start space-y-7 lg:pr-4 pt-20 lg:ml-8">
             <div className="reveal-left">
-              <span className="inline-flex items-center bg-purple-900/30 border border-purple-400/30 text-white/90 text-[11px] font-semibold px-5 py-2 rounded-full tracking-[0.15em] uppercase">
+              <span className="inline-flex items-center bg-purple-900/30 border border-purple-400/30 text-white/90 text-xs font-semibold px-5 py-2 rounded-full tracking-[0.15em] uppercase">
                 Le site de rencontre immobilier
               </span>
             </div>
 
             <div className="reveal-left reveal-delay-1">
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold text-white leading-[1.08] tracking-tight">
+              <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-extrabold text-white leading-[1.08] tracking-tight">
                 L&apos;immobilier<br />devrait être
               </h1>
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-extrabold leading-[1.08] tracking-tight bg-linear-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] bg-clip-text text-transparent">
+              <h1 className="text-5xl sm:text-6xl lg:text-[4.5rem] font-extrabold leading-[1.08] tracking-tight bg-linear-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] bg-clip-text text-transparent">
                 une rencontre.
               </h1>
             </div>
 
-            <p className="reveal-left reveal-delay-2 text-white text-base sm:text-[1.05rem] leading-relaxed max-w-md">
+            <p className="reveal-left reveal-delay-2 text-white text-lg sm:text-xl leading-relaxed max-w-lg">
               Imoni connecte vendeurs, acquéreurs et professionnels<br className="hidden sm:block" /> dans un écosystème intelligent, neutre et sécurisé.
             </p>
 
@@ -93,7 +93,7 @@ export default function HeroSection() {
           {/* Colonne droite — phones */}
           <div className="reveal-right reveal-delay-2 relative flex justify-center lg:justify-end items-start lg:translate-x-8 pt-0">
             <div className="relative drop-shadow-2xl -translate-y-12 -translate-x-20">
-              <div className="relative w-[340px] sm:w-[400px] lg:w-[460px] h-[440px] sm:h-[520px] lg:h-[600px]">
+              <div className="relative w-100 sm:w-120 lg:w-140 h-130 sm:h-155 lg:h-180">
                 <Image
                   src="/mockup-iphone-2.png"
                   alt="Imoni app"
@@ -126,12 +126,6 @@ export default function HeroSection() {
           </div>
 
         </div>
-      </div>
-
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
-        <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" className="w-full h-20 sm:h-28">
-          <path d="M0 60L1440 60L1440 20C1200 60 960 0 720 20C480 40 240 0 0 20L0 60Z" fill="white" />
-        </svg>
       </div>
     </section>
   );
