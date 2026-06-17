@@ -25,7 +25,7 @@ export default function InvestisseurHero() {
         <div className="lg:max-w-[55%] 2xl:max-w-[50%]">
 
           {/* Gauche — texte */}
-          <div className="flex flex-col justify-center space-y-5 sm:space-y-6">
+          <div className="flex flex-col justify-center items-center text-center sm:items-start sm:text-left space-y-5 sm:space-y-6">
             <div className="reveal-left">
               <span className="inline-flex items-center flex-wrap gap-1 sm:gap-2 border border-[#8B5CF6]/40 text-[10px] sm:text-[11px] px-3 sm:px-4 py-1.5 rounded-full tracking-wider sm:tracking-widest uppercase" style={{ background: "rgba(139,92,246,0.08)" }}>
                 <span className="text-white/50 font-medium">Pour investisseurs,</span>
@@ -45,7 +45,7 @@ export default function InvestisseurHero() {
               </h1>
             </div>
 
-            <p className="reveal-left reveal-delay-2 text-white/50 text-sm sm:text-base leading-relaxed max-w-lg italic">
+            <p className="reveal-left reveal-delay-2 text-white text-sm sm:text-base leading-relaxed max-w-lg italic">
               Pour la première fois en France, une application de rencontre immobilière qui vous est dédiée, avec un enregistrement complet de <span className="text-[#8B5CF6] font-semibold underline underline-offset-4 decoration-[#8B5CF6]">qui vous êtes</span> et de votre <span className="text-[#8B5CF6] font-semibold">stratégie d&apos;investissement</span>.
             </p>
 

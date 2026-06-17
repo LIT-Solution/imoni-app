@@ -26,7 +26,7 @@ export default function HeroSection() {
         <div className="grid lg:grid-cols-[52%_48%] gap-0 items-start min-h-[calc(100vh-6rem)]">
 
           {/* Colonne gauche */}
-          <div className="flex flex-col justify-start space-y-5 sm:space-y-7 lg:pr-4 pt-8 sm:pt-20 lg:ml-4 2xl:ml-8">
+          <div className="flex flex-col justify-start items-center text-center sm:items-start sm:text-left space-y-5 sm:space-y-7 lg:pr-4 pt-8 sm:pt-20 lg:ml-4 2xl:ml-8">
             <div className="reveal-left">
               <span className="inline-flex items-center bg-purple-900/30 border border-purple-400/30 text-white/90 text-[10px] sm:text-xs font-semibold px-4 sm:px-5 py-2 rounded-full tracking-[0.15em] uppercase">
                 Le site de rencontre immobilier
@@ -103,24 +103,25 @@ export default function HeroSection() {
                           sizes="(max-width: 640px) 224px, (max-width: 1024px) 400px, 560px"
                 />
               </div>
+            </div>
 
-              <div className="absolute -bottom-4 sm:-bottom-8 right-0 z-30 bg-white rounded-2xl sm:rounded-3xl shadow-2xl px-3 sm:px-5 py-3 sm:py-4 flex items-center gap-3 sm:gap-4 w-48 sm:w-64">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-linear-to-br from-[#E91E8C] to-purple-600 flex items-center justify-center shrink-0 shadow-md shadow-pink-400/40">
-                  <div className="flex items-center gap-0.5 h-4">
-                    {[3, 5, 7, 5, 3, 6, 7, 4, 3].map((h, i) => (
-                      <div
-                        key={i}
-                        className="wave-bar w-0.5 bg-white rounded-full"
-                        style={{ height: `${h}px`, animationDelay: `${i * 0.1}s` }}
-                      />
-                    ))}
-                  </div>
+            {/* Coach vocal — en bas à droite, hors du wrapper phones */}
+            <div className="absolute bottom-0 right-0 z-30 bg-white rounded-2xl sm:rounded-3xl shadow-2xl px-3 sm:px-5 py-3 sm:py-4 hidden sm:flex items-center gap-3 sm:gap-4 w-48 sm:w-64">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-linear-to-br from-[#E91E8C] to-purple-600 flex items-center justify-center shrink-0 shadow-md shadow-pink-400/40">
+                <div className="flex items-center gap-0.5 h-4">
+                  {[3, 5, 7, 5, 3, 6, 7, 4, 3].map((h, i) => (
+                    <div
+                      key={i}
+                      className="wave-bar w-0.5 bg-white rounded-full"
+                      style={{ height: `${h}px`, animationDelay: `${i * 0.1}s` }}
+                    />
+                  ))}
                 </div>
-                <div>
-                  <p className="text-[#0D0F1A] text-[11px] sm:text-[13px] font-bold leading-tight">Votre coach vocal</p>
-                  <p className="text-[#0D0F1A] text-[11px] sm:text-[13px] font-bold leading-tight">Imoni 24/24</p>
-                  <p className="text-gray-400 text-[10px] sm:text-[11px] mt-1">à vos côtés à chaque étape.</p>
-                </div>
+              </div>
+              <div>
+                <p className="text-[#0D0F1A] text-[11px] sm:text-[13px] font-bold leading-tight">Votre coach vocal</p>
+                <p className="text-[#0D0F1A] text-[11px] sm:text-[13px] font-bold leading-tight">Imoni 24/24</p>
+                <p className="text-gray-400 text-[10px] sm:text-[11px] mt-1">à vos côtés à chaque étape.</p>
               </div>
             </div>
           </div>

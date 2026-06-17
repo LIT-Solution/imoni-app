@@ -38,10 +38,10 @@ export default function VendeurHero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-8 w-full">
-        <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[calc(100vh-6rem)]">
+        <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[calc(100vh-5rem)]">
 
           {/* Colonne gauche — texte */}
-          <div className="flex flex-col justify-center space-y-5 sm:space-y-6 -mt-8 sm:-mt-16">
+          <div className="flex flex-col justify-center items-center text-center sm:items-start sm:text-left space-y-5 sm:space-y-6 sm:-mt-16">
             <div className="reveal-left">
               <span className="inline-flex items-center border-2 border-[#F59E0B]/50 text-[#F59E0B] text-[10px] sm:text-[11px] font-bold px-4 py-1.5 rounded-full tracking-widest uppercase bg-[#F59E0B]/10">
                 Pour les vendeurs
@@ -49,32 +49,28 @@ export default function VendeurHero() {
             </div>
 
             <div className="reveal-left reveal-delay-1">
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.5rem] 2xl:text-[3.6rem] font-extrabold text-white leading-[1.08]">
+              <h1 className="text-4xl sm:text-4xl lg:text-[2.5rem] 2xl:text-[3.6rem] font-extrabold text-white leading-[1.08]">
                 Votre bien mérite
               </h1>
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.5rem] 2xl:text-[3.6rem] font-extrabold leading-[1.08]">
+              <h1 className="text-4xl sm:text-4xl lg:text-[2.5rem] 2xl:text-[3.6rem] font-extrabold leading-[1.08]">
                 <span className="bg-linear-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00] bg-clip-text text-transparent">
                   la bonne rencontre.
                 </span>
               </h1>
             </div>
 
-            <p className="reveal-left reveal-delay-2 text-white/70 text-sm sm:text-base lg:text-[1.05rem] leading-relaxed max-w-md">
-              Imoni révolutionne la vente immobilière.
-              <br className="hidden sm:block" />
-              Rencontrez des acquéreurs qualifiés, gardez le contrôle
-              <br className="hidden sm:block" />
-              et vendez dans les meilleures conditions.
+            <p className="reveal-left reveal-delay-2 text-white text-base sm:text-base lg:text-[1.05rem] leading-relaxed max-w-md">
+              Imoni révolutionne la vente immobilière. Rencontrez des acquéreurs qualifiés, gardez le contrôle et vendez dans les meilleures conditions.
             </p>
 
-            <ul className="reveal-left reveal-delay-3 space-y-2">
+            <ul className="reveal-left reveal-delay-3 space-y-2 text-left">
               {[
                 "Acquéreurs qualifiés et sélectionnables",
                 "Visibilité maîtrisée et confidentialité assurée",
                 "Sécurité, engagement et gain de temps",
                 "Point d'équilibre trouvé dans de meilleures conditions",
               ].map((item) => (
-                <li key={item} className="flex items-center gap-2 sm:gap-3 text-white/80 text-xs sm:text-sm">
+                <li key={item} className="flex items-center gap-2 sm:gap-3 text-white text-sm sm:text-sm">
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" fill="none" viewBox="0 0 24 24">
                     <circle cx="12" cy="12" r="10" stroke="white" strokeWidth={1.5} strokeOpacity={0.4} />
                     <path d="M8 12l3 3 5-5" stroke="white" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" />
@@ -103,8 +99,8 @@ export default function VendeurHero() {
             </div>
           </div>
 
-          {/* Colonne droite — cartes | téléphone | cartes */}
-          <div className="reveal-right reveal-delay-2 flex items-center justify-center gap-3 lg:-ml-12 2xl:ml-0">
+          {/* Colonne droite — cartes | téléphone | cartes (desktop only) */}
+          <div className="reveal-right reveal-delay-2 hidden lg:flex items-center justify-center gap-3 lg:-ml-12 2xl:ml-0">
 
             {/* Cartes gauche */}
             <div className="hidden lg:flex flex-col gap-4" style={{ width: "175px", flexShrink: 0 }}>

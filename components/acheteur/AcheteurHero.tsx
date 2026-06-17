@@ -24,13 +24,18 @@ export default function AcheteurHero() {
       <div className="absolute inset-0 bg-linear-to-r from-[#0D0F1A] via-[#0D0F1A]/85 via-55% to-transparent pointer-events-none" />
       <div className="absolute inset-0 bg-linear-to-t from-[#0D0F1A]/60 to-transparent pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 pb-8 w-full">
-        <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[calc(100vh-6rem)]">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 w-full">
 
-          {/* Left column */}
-          <div className="flex flex-col justify-center space-y-5 sm:space-y-7 -mt-8 sm:-mt-24">
+        <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[calc(100vh-5rem)] lg:min-h-[calc(100vh-10rem)]">
+
+          {/* Colonne texte */}
+          <div className="flex flex-col justify-center items-center text-center sm:items-start sm:text-left space-y-5 sm:space-y-7 sm:-mt-24">
+
             <div className="reveal-left">
-              <span className="inline-flex items-center border border-transparent bg-linear-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] text-white text-[10px] sm:text-[11px] font-bold px-4 sm:px-5 py-1.5 sm:py-2 rounded-full tracking-widest uppercase" style={{ background: "linear-gradient(#0D0F1A, #0D0F1A) padding-box, linear-gradient(to right, #8B5CF6, #E91E8C, #FF8C00) border-box", borderWidth: "2px", borderColor: "transparent" }}>
+              <span
+                className="inline-flex items-center text-white text-[10px] sm:text-[11px] font-bold px-4 sm:px-5 py-1.5 sm:py-2 rounded-full tracking-widest uppercase"
+                style={{ background: "linear-gradient(#0D0F1A, #0D0F1A) padding-box, linear-gradient(to right, #8B5CF6, #E91E8C, #FF8C00) border-box", borderWidth: "2px", borderColor: "transparent" }}
+              >
                 Pour les acheteurs
               </span>
             </div>
@@ -46,10 +51,7 @@ export default function AcheteurHero() {
             </div>
 
             <p className="reveal-left reveal-delay-2 text-white/75 text-sm sm:text-base lg:text-lg leading-relaxed max-w-md">
-              Imoni inverse la recherche immobilière :
-              <br />décrivez votre projet, valorisez votre profil
-              <br />et laissez vendeurs et professionnels
-              <br />venir à vous.
+              Imoni inverse la recherche immobilière : décrivez votre projet, valorisez votre profil et laissez vendeurs et professionnels venir à vous.
             </p>
 
             <div className="reveal reveal-delay-3">
@@ -63,7 +65,7 @@ export default function AcheteurHero() {
               </a>
             </div>
 
-            <div className="reveal reveal-delay-4 flex flex-wrap gap-4 sm:gap-8">
+            <div className="reveal reveal-delay-4 flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-8">
               {["Gratuit", "Sans engagement", "Sécurisé"].map((label) => (
                 <div key={label} className="flex items-center gap-2 text-white/70 text-xs sm:text-sm">
                   <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" viewBox="0 0 24 24">
@@ -76,12 +78,11 @@ export default function AcheteurHero() {
             </div>
           </div>
 
-          {/* Right column — phone mockup with perspective */}
-          <div className="reveal-right reveal-delay-2 relative flex justify-center lg:justify-center items-center mt-4 sm:-mt-16 lg:-ml-28 2xl:-ml-16" style={{ perspective: "1200px" }}>
+          {/* Colonne téléphone — desktop uniquement */}
+          <div className="reveal-right reveal-delay-2 relative hidden lg:flex justify-center items-center sm:-mt-16 lg:-ml-28 2xl:-ml-16" style={{ perspective: "1200px" }}>
             <div className="relative">
-              {/* Phone */}
               <div
-                className="relative w-52 sm:w-75 lg:w-100 2xl:w-100 h-72 sm:h-100 lg:h-140 2xl:h-140"
+                className="relative lg:w-100 2xl:w-100 lg:h-140 2xl:h-140"
                 style={{ transform: "rotateY(-20deg) rotateX(3deg)", transformStyle: "preserve-3d", filter: "drop-shadow(0 0 40px rgba(100, 50, 180, 0.5)) drop-shadow(0 20px 60px rgba(0, 0, 0, 0.6)) contrast(1.1) brightness(1.05)" }}
               >
                 <Image
@@ -90,11 +91,10 @@ export default function AcheteurHero() {
                   fill
                   className="object-contain object-bottom"
                   priority
-                          sizes="(max-width: 640px) 208px, (max-width: 1024px) 300px, 400px"
+                  sizes="400px"
                 />
               </div>
 
-              {/* Floating cards */}
               <div className="hidden lg:flex absolute lg:-left-28 2xl:-left-12 top-[30%] items-center gap-2.5 bg-white rounded-xl px-4 py-3 shadow-lg shadow-black/10" style={{ animation: "breathe1 4s ease-in-out infinite" }}>
                 <div className="w-9 h-9 rounded-lg bg-[#E91E8C]/10 flex items-center justify-center shrink-0">
                   <svg className="w-5 h-5 text-[#E91E8C]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" /></svg>

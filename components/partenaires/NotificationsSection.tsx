@@ -39,7 +39,7 @@ const notifications = [
 function NotifCard({ app, title, msg, color, icon }: { app: string; title: string; msg: string; color: string; icon: string }) {
   return (
     <div
-      className="w-[270px] rounded-2xl p-3.5 relative overflow-hidden"
+      className="w-full sm:w-[270px] rounded-2xl p-3.5 relative overflow-hidden"
       style={{
         background: "rgba(255,255,255,0.95)",
         backdropFilter: "blur(20px)",
@@ -73,23 +73,24 @@ export default function NotificationsSection() {
   const sectionRef = useReveal(0.05);
 
   return (
-    <section ref={sectionRef} className="py-24 bg-white relative overflow-hidden">
+    <section ref={sectionRef} className="pt-8 pb-24 lg:py-24 bg-white relative overflow-hidden">
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, #E91E8C 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
 
-      <div className="relative flex gap-0 items-center">
+      {/* Mobile : empilé verticalement */}
+      <div className="relative flex flex-col lg:flex-row gap-0 items-center gap-y-8 lg:gap-y-0">
 
-        {/* Téléphone — collé à gauche, dépasse du conteneur */}
+        {/* Téléphone */}
         <div className="reveal-left shrink-0 lg:pl-20 2xl:pl-44">
           <img
             src="/partenaire/phone_partenaire_2.webp"
             alt="Application Imoni"
-            className="object-contain drop-shadow-2xl lg:h-[550px] 2xl:h-[700px]"
+            className="object-contain drop-shadow-2xl h-[420px] sm:h-[480px] lg:h-[550px] 2xl:h-[700px]"
             style={{ width: "auto" }}
           />
         </div>
 
         {/* Droite : titre + notifications en quinconce */}
-        <div className="flex-1 flex flex-col gap-4 px-10 lg:px-8 2xl:px-16 max-w-2xl">
+        <div className="flex-1 flex flex-col gap-4 px-4 sm:px-10 lg:px-8 2xl:px-16 max-w-2xl w-full">
 
           {/* Titre */}
           <div className="reveal mb-6">

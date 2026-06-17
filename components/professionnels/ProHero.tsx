@@ -35,7 +35,7 @@ export default function ProHero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 sm:pt-10 pb-8 w-full">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[calc(100vh-2rem)]">
           {/* Left column */}
-          <div className="flex flex-col justify-center space-y-5 sm:space-y-7">
+          <div className="flex flex-col justify-center items-center text-center sm:items-start sm:text-left space-y-5 sm:space-y-7">
             <div className="reveal-left">
               <span className="inline-flex items-center text-white text-[10px] sm:text-xs font-bold px-4 sm:px-5 py-2 rounded-full tracking-widest uppercase"
                 style={{
@@ -68,7 +68,7 @@ export default function ProHero() {
               regardez peut-être si votre acquéreur existe déjà.
             </p>
 
-            <ul className="reveal reveal-delay-3 space-y-2 sm:space-y-3">
+            <ul className="reveal reveal-delay-3 space-y-2 sm:space-y-3 text-left">
               {checks.map((text) => (
                 <li key={text} className="flex items-start gap-2 sm:gap-3 text-white/85 text-sm sm:text-base lg:text-lg">
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#E91E8C] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24">
@@ -81,7 +81,7 @@ export default function ProHero() {
           </div>
 
           {/* Right column — phone mockup + badge */}
-          <div className="reveal-right reveal-delay-2 relative flex justify-center items-center mt-2 lg:mt-16 2xl:mt-4 lg:-ml-36 2xl:-ml-12">
+          <div className="reveal-right reveal-delay-2 relative flex justify-center items-center -translate-x-8 sm:translate-x-0 mt-2 lg:mt-16 2xl:mt-4 lg:-ml-36 2xl:-ml-12">
             <div
               className="relative w-56 sm:w-80 lg:w-120 2xl:w-150 h-72 sm:h-105 lg:h-165 2xl:h-200"
               style={{ filter: "drop-shadow(0 20px 60px rgba(0, 0, 0, 0.4))" }}

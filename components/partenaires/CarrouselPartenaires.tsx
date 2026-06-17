@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const categories = [
   {
@@ -34,13 +34,40 @@ const categories = [
   },
 ];
 
-const VISIBLE = 4;
+function getVisible() {
+  if (typeof window === "undefined") return 4;
+  if (window.innerWidth < 640) return 1;
+  if (window.innerWidth < 1024) return 2;
+  return 4;
+}
 
 export default function CarrouselPartenaires() {
   const [start, setStart] = useState(0);
+  const [visible, setVisible] = useState(4);
 
+  useEffect(() => {
+    const update = () => {
+      const v = getVisible();
+      setVisible(v);
+      setStart((s) => Math.min(s, Math.max(0, categories.length - v)));
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const maxStart = Math.max(0, categories.length - visible);
   const prev = () => setStart((s) => Math.max(0, s - 1));
-  const next = () => setStart((s) => Math.min(categories.length - VISIBLE, s + 1));
+  const next = () => setStart((s) => Math.min(maxStart, s + 1));
+
+  // Auto-scroll sur mobile uniquement
+  useEffect(() => {
+    if (visible !== 1) return;
+    const timer = setInterval(() => {
+      setStart((s) => (s >= maxStart ? 0 : s + 1));
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [visible, maxStart]);
 
   return (
     <section className="py-20 overflow-hidden" style={{ background: "#FFF5F8" }}>
@@ -54,11 +81,11 @@ export default function CarrouselPartenaires() {
             </h2>
             <p className="text-gray-400 text-sm mt-2">Mettez en avant votre activité, vos avantages et votre zone d'intervention.</p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 shrink-0 ml-4">
             <button onClick={prev} disabled={start === 0} className="w-10 h-10 rounded-full flex items-center justify-center border border-gray-200 bg-white hover:bg-[#E91E8C] hover:border-[#E91E8C] group transition-all disabled:opacity-30">
               <svg className="w-4 h-4 text-gray-500 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
             </button>
-            <button onClick={next} disabled={start >= categories.length - VISIBLE} className="w-10 h-10 rounded-full flex items-center justify-center border border-gray-200 bg-white hover:bg-[#E91E8C] hover:border-[#E91E8C] group transition-all disabled:opacity-30">
+            <button onClick={next} disabled={start >= maxStart} className="w-10 h-10 rounded-full flex items-center justify-center border border-gray-200 bg-white hover:bg-[#E91E8C] hover:border-[#E91E8C] group transition-all disabled:opacity-30">
               <svg className="w-4 h-4 text-gray-500 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
             </button>
           </div>
@@ -69,7 +96,7 @@ export default function CarrouselPartenaires() {
           <div
             className="flex gap-4"
             style={{
-              transform: `translateX(calc(-${start} * (100% / ${VISIBLE} + 4px)))`,
+              transform: `translateX(calc(-${start} * (100% / ${visible} + ${visible === 1 ? 16 : 4}px)))`,
               transition: "transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)",
             }}
           >
@@ -77,9 +104,13 @@ export default function CarrouselPartenaires() {
               <div
                 key={i}
                 className="group bg-white rounded-3xl overflow-hidden flex flex-col flex-shrink-0 hover:-translate-y-1 transition-transform duration-300"
-                style={{ width: `calc(100% / ${VISIBLE} - 12px)`, boxShadow: "0 4px 24px rgba(233,30,140,0.07)", border: "1px solid rgba(233,30,140,0.08)" }}
+                style={{
+                  width: `calc(100% / ${visible} - ${visible === 1 ? 0 : 12}px)`,
+                  boxShadow: "0 4px 24px rgba(233,30,140,0.07)",
+                  border: "1px solid rgba(233,30,140,0.08)",
+                }}
               >
-                <div className="relative overflow-hidden" style={{ height: "180px" }}>
+                <div className="relative overflow-hidden" style={{ height: visible === 1 ? "220px" : "180px" }}>
                   <img src={cat.photo} alt={cat.label} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-[#E91E8C]/0 group-hover:bg-[#E91E8C]/10 transition-all duration-300" />
                 </div>
@@ -90,7 +121,7 @@ export default function CarrouselPartenaires() {
                     </svg>
                   </div>
                   <p className="font-extrabold text-[#0D0F1A] text-base">{cat.label}</p>
-                  <p className="text-gray-400 text-xs leading-relaxed">{cat.desc}</p>
+                  <p className="text-gray-400 text-sm leading-relaxed">{cat.desc}</p>
                 </div>
               </div>
             ))}
@@ -99,8 +130,13 @@ export default function CarrouselPartenaires() {
 
         {/* Dots */}
         <div className="flex justify-center gap-2 mt-8">
-          {Array.from({ length: categories.length - VISIBLE + 1 }).map((_, i) => (
-            <button key={i} onClick={() => setStart(i)} className="h-2 rounded-full transition-all duration-300" style={{ width: i === start ? 28 : 8, background: i === start ? "#E91E8C" : "rgba(233,30,140,0.2)" }} />
+          {Array.from({ length: maxStart + 1 }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setStart(i)}
+              className="h-2 rounded-full transition-all duration-300"
+              style={{ width: i === start ? 28 : 8, background: i === start ? "#E91E8C" : "rgba(233,30,140,0.2)" }}
+            />
           ))}
         </div>
 

@@ -108,8 +108,8 @@ function CiblageDrawer({ open, onClose, onValidate }: { open: boolean; onClose: 
 
       {/* Panel */}
       <div
-        className="fixed top-0 right-0 z-50 h-full flex flex-col bg-white shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]"
-        style={{ width: "480px", transform: open ? "translateX(0)" : "translateX(100%)" }}
+        className="fixed top-0 right-0 z-50 h-full flex flex-col bg-white shadow-2xl transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] w-full sm:w-[480px]"
+        style={{ transform: open ? "translateX(0)" : "translateX(100%)" }}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
@@ -304,7 +304,7 @@ export default function CiblageSection_v2() {
           <div className="grid lg:grid-cols-2 gap-14 items-center">
 
             {/* Colonne gauche */}
-            <div className="reveal-left">
+            <div className="reveal-left flex flex-col items-center text-center sm:items-start sm:text-left">
                 <h2 className="text-3xl lg:text-4xl font-extrabold text-[#0D0F1A] leading-tight mb-4">
                 Ciblez vos clients<br />avec <span style={{ color: "#E91E8C" }}>précision</span>
               </h2>
@@ -313,7 +313,7 @@ export default function CiblageSection_v2() {
                 Configurez votre visibilité selon vos besoins :
               </p>
 
-              <ul className="space-y-4">
+              <ul className="space-y-4 text-left">
                 {criteria.map((c, i) => (
                   <li key={c.label} className="flex items-start gap-3.5 reveal" style={{ transitionDelay: `${i * 60}ms` }}>
                     <div className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 mt-0.5" style={{ background: "rgba(233,30,140,0.1)", border: "1px solid rgba(233,30,140,0.2)" }}>

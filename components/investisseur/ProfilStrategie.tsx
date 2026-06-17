@@ -73,7 +73,7 @@ export default function ProfilStrategie() {
         </div>
 
         {/* Coverflow 3D */}
-        <div className="relative h-96 sm:h-110 lg:h-130 flex items-center justify-center" style={{ perspective: "1200px" }}>
+        <div className="relative h-[520px] sm:h-110 lg:h-130 flex items-center justify-center overflow-hidden" style={{ perspective: "1200px" }}>
           {slides.map((slide, i) => {
             const total = slides.length;
             const rawOffset = (i - current + total) % total;
@@ -81,23 +81,24 @@ export default function ProfilStrategie() {
             const isActive = signedOffset === 0;
             const abs = Math.abs(signedOffset);
 
-            const step = isMobile ? 120 : 260;
+            const step = isMobile ? 320 : 260;
             const translateX = signedOffset * step;
-            const rotateY = signedOffset * (isMobile ? -25 : -38);
+            const rotateY = signedOffset * (isMobile ? 0 : -38);
             const scale = isActive ? 1 : Math.max(0.72, 1 - abs * 0.14);
-            const opacity = isActive ? 1 : Math.max(0.25, 1 - abs * 0.3);
+            const opacity = isMobile ? (isActive ? 1 : 0) : (isActive ? 1 : Math.max(0.25, 1 - abs * 0.3));
             const zIndex = total - abs;
 
             return (
               <div
                 key={i}
-                className="absolute w-full max-w-md cursor-pointer"
+                className="absolute w-[90vw] max-w-md cursor-pointer"
                 style={{
                   transform: `translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg)`,
                   transformStyle: "preserve-3d",
                   zIndex,
                   opacity,
                   transition: "all 0.65s cubic-bezier(0.4, 0, 0.2, 1)",
+                  pointerEvents: isActive ? "auto" : "none",
                 }}
                 onClick={() => setCurrent(i)}
               >

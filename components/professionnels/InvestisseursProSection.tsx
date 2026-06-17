@@ -3,11 +3,13 @@ import Image from "next/image";
 import { useReveal } from "@/hooks/useReveal";
 
 const features = [
-  { text: "Profils vérifiés et critères clairement identifiés", color: "#8B5CF6" },
-  { text: "Stratégies d'investissement clairement identifiées", color: "#E91E8C" },
-  { text: "Budgets et secteurs ciblés", color: "#10B981" },
-  { text: "Gain de temps et mises en relation efficaces", color: "#FF8C00" },
+  { text: "Profils vérifiés et critères clairement identifiés" },
+  { text: "Stratégies d'investissement clairement identifiées" },
+  { text: "Budgets et secteurs ciblés" },
+  { text: "Gain de temps et mises en relation efficaces" },
 ];
+
+const CHECK_COLOR = "#8B5CF6";
 
 export default function InvestisseursProSection() {
   const sectionRef = useReveal(0.1);
@@ -19,7 +21,7 @@ export default function InvestisseursProSection() {
           {/* Left — text */}
           <div>
             <div className="reveal-left">
-              <span className="text-[#F59E0B] font-semibold text-xs uppercase tracking-widest">
+              <span className="text-[#8B5CF6] font-semibold text-xs uppercase tracking-widest">
                 Investisseurs &amp; marchands de biens
               </span>
             </div>
@@ -40,9 +42,9 @@ export default function InvestisseursProSection() {
                 >
                   <div
                     className="w-6 h-6 rounded-full flex items-center justify-center shrink-0"
-                    style={{ backgroundColor: `${f.color}20` }}
+                    style={{ backgroundColor: `${CHECK_COLOR}20` }}
                   >
-                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" style={{ color: f.color }}>
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" style={{ color: CHECK_COLOR }}>
                       <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </div>
