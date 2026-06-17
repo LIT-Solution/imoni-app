@@ -67,8 +67,6 @@ export default function AvantagesSection() {
             src="/vendeur/vendu-vendeur.webp"
             alt="Bien vendu avec Imoni"
             fill
-            quality={100}
-            unoptimized
             className="object-cover"
             style={{ objectPosition: "center center" }}
             sizes="42vw"

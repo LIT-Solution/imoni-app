@@ -31,12 +31,8 @@ export default function VendeurHero() {
           src="/vendeur/fond-vendeur.webp"
           alt=""
           fill
-          quality={100}
-          unoptimized
           className="object-cover object-center"
           priority
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
         />
         <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(13,15,26,0.97) 0%, rgba(13,15,26,0.9) 35%, rgba(13,15,26,0.4) 60%, transparent 100%)" }} />
       </div>
@@ -53,10 +49,10 @@ export default function VendeurHero() {
             </div>
 
             <div className="reveal-left reveal-delay-1">
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-[3.6rem] font-extrabold text-white leading-[1.08]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.5rem] 2xl:text-[3.6rem] font-extrabold text-white leading-[1.08]">
                 Votre bien mérite
               </h1>
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-[3.6rem] font-extrabold leading-[1.08]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.5rem] 2xl:text-[3.6rem] font-extrabold leading-[1.08]">
                 <span className="bg-linear-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00] bg-clip-text text-transparent">
                   la bonne rencontre.
                 </span>
@@ -108,7 +104,7 @@ export default function VendeurHero() {
           </div>
 
           {/* Colonne droite — cartes | téléphone | cartes */}
-          <div className="reveal-right reveal-delay-2 flex items-center justify-center gap-3">
+          <div className="reveal-right reveal-delay-2 flex items-center justify-center gap-3 lg:-ml-12 2xl:ml-0">
 
             {/* Cartes gauche */}
             <div className="hidden lg:flex flex-col gap-4" style={{ width: "175px", flexShrink: 0 }}>
@@ -126,18 +122,14 @@ export default function VendeurHero() {
             </div>
 
             {/* Téléphone */}
-            <div style={{ filter: "drop-shadow(0 0 40px rgba(139,92,246,0.5))", flexShrink: 0 }} className="w-48 sm:w-60 lg:w-64 xl:w-80 -translate-y-5 sm:-translate-y-10">
+            <div style={{ filter: "drop-shadow(0 0 40px rgba(139,92,246,0.5))", flexShrink: 0 }} className="w-48 sm:w-60 lg:w-72 2xl:w-80 -translate-y-5 sm:-translate-y-10">
               <div style={{ transform: "rotateY(-4deg) rotateX(2deg)" }}>
                 <Image
                   src="/vendeur/phone-vendeur.webp"
                   alt="Application Imoni vendeur"
                   width={1440}
                   height={2400}
-                  quality={100}
-                  unoptimized
                   className="w-full h-auto rounded-[2rem] sm:rounded-[3rem]"
-                  placeholder="blur"
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
                 />
               </div>
             </div>

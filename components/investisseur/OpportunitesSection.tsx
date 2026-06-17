@@ -76,8 +76,6 @@ export default function OpportunitesSection() {
                           alt={step.title}
                           fill
                           className="object-cover"
-                          quality={100}
-                          unoptimized
                         />
                       </div>
                     </div>

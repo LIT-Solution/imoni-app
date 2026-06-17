@@ -4,11 +4,11 @@
 
 | | |
 |---|---|
-| Framework | Next.js 16 (App Router) |
+| Framework | Next.js 16 (App Router, Turbopack) |
 | Style | Tailwind CSS v4 |
 | Langage | TypeScript |
 | Fonts | DM Sans (corps) + Playfair Display (display) |
-| Déploiement cible | Vercel / Netlify / Cloudflare Pages |
+| Déploiement | Netlify (imoni-dev.netlify.app) |
 
 ---
 
@@ -17,53 +17,72 @@
 ```
 imoni-app/
 ├── app/
-│   ├── layout.tsx               ← Navbar + FooterNav (toutes les pages)
-│   ├── page.tsx                 ← Homepage : Hero + Ecosystem + Trust + WhyImoni + FooterCTA
-│   ├── globals.css              ← Variables CSS, animations keyframes
+│   ├── layout.tsx               ← Navbar + FooterNav + SplashWrapper (toutes les pages)
+│   ├── page.tsx                 ← Homepage
+│   ├── globals.css              ← Variables CSS, animations keyframes, splash-bar
 │   ├── acheteur/page.tsx        ← Page acheteur ✅
-│   ├── vendeur/page.tsx         ← Page vendeur 🔲 (en construction)
-│   ├── pro-immo/page.tsx        ← Page pro de l'immo 🔲
-│   ├── autres-pros/page.tsx     ← Page autres pros 🔲
-│   └── pourquoi-imoni/page.tsx  ← Page pourquoi 🔲
+│   ├── vendeur/page.tsx         ← Page vendeur ✅
+│   ├── investisseur/page.tsx    ← Page investisseur ✅
+│   ├── professionnels/page.tsx  ← Page professionnels ✅
+│   ├── partenaires/page.tsx     ← Page partenaires ✅
+│   ├── pro-immo/page.tsx        ← Page pro de l'immo
+│   ├── autres-pros/page.tsx     ← Page autres pros
+│   ├── pourquoi-imoni/page.tsx  ← Page pourquoi Imoni
+│   ├── cgu/page.tsx             ← CGU
+│   ├── confidentialite/page.tsx ← Confidentialité
+│   └── contact/                 ← Page contact
 ├── components/
 │   ├── layout/
 │   │   ├── Navbar.tsx           ← Navigation sticky responsive (dégradé CTA)
-│   │   ├── Footer.tsx           ← CTA "Prêt à vivre l'expérience Imoni" + QR code (homepage only)
-│   │   └── FooterNav.tsx        ← Footer navigation permanent (toutes les pages)
+│   │   ├── FooterNav.tsx        ← Footer navigation permanent (toutes les pages)
+│   │   ├── SplashScreen.tsx     ← Écran de chargement (logo + barre dégradée)
+│   │   └── SplashWrapper.tsx    ← Wrapper client dynamic(ssr:false) pour SplashScreen
 │   ├── homepage/
 │   │   ├── HeroSection.tsx      ← Hero plein écran + mockups téléphone
-│   │   ├── EcosystemSection.tsx ← 4 cartes acteurs + barre bas
+│   │   ├── EcosystemSection.tsx ← 4 cartes acteurs
 │   │   ├── TrustSection.tsx     ← Section confiance (fond dark)
 │   │   └── WhyImoniSection.tsx  ← 3 colonnes texte/vidéo/bénéfices
 │   ├── acheteur/
 │   │   ├── AcheteurHero.tsx     ← Hero dark + téléphone 3D + cartes flottantes
-│   │   ├── ProfileSection.tsx   ← 2 colonnes : bénéfices + visuel section-profile.webp
+│   │   ├── ProfileSection.tsx   ← 2 colonnes : bénéfices + visuel
 │   │   ├── InnovationsSection.tsx ← Carousel scroll-driven (4 innovations)
-│   │   └── CtaBanner.tsx        ← Rectangle dégradé violet/indigo débordant
+│   │   └── CtaBanner.tsx        ← Rectangle dégradé violet/indigo
+│   ├── vendeur/
+│   │   ├── VendeurHero.tsx      ← Hero dark + phone + cartes latérales
+│   │   ├── AlgorithmeSection.tsx
+│   │   ├── AvantagesSection.tsx
+│   │   └── SecuriteSection.tsx
+│   ├── investisseur/
+│   │   ├── InvestisseurHero.tsx ← Hero dark + homme + phone + badge cercle
+│   │   ├── ProfilStrategie.tsx  ← Carousel stack auto-slide
+│   │   ├── InvestisseurCta.tsx
+│   │   └── ...
+│   ├── professionnels/
+│   │   ├── ProHero.tsx          ← Hero dark + phone + badge 3 mois offerts
+│   │   ├── AvantagesProSection.tsx
+│   │   ├── ProCta.tsx
+│   │   └── ...
+│   ├── partenaires/
+│   │   ├── PartenairesHero.tsx  ← Hero fond warm + personnages + carte notif
+│   │   ├── NotificationsSection.tsx ← Phone + notifications intelligentes
+│   │   ├── CiblageSection.tsx
+│   │   ├── CarrouselPartenaires.tsx
+│   │   └── ...
 │   └── ui/
 │       └── Check.tsx            ← Composant checkmark SVG coloré
+├── hooks/
+│   ├── useReveal.ts             ← Intersection Observer pour animations reveal
+│   └── useParallax.ts           ← Effet parallax au scroll
 ├── public/
-│   ├── imoni-logo.svg           ← Logo blanc vectoriel (117×56px)
-│   ├── fond_accueille.png       ← Hero homepage background (1920×1080)
+│   ├── imoni-logo.svg           ← Logo blanc vectoriel
+│   ├── fond_accueille.png       ← Hero homepage background
 │   ├── mockup-iphone-2.png      ← Deux téléphones côte à côte
-│   ├── portrait/                ← Portraits webp pour EcosystemSection
-│   │   ├── femme1.webp          ← Acheteur/Vendeur
-│   │   ├── homme2.webp          ← Pro de l'immo
-│   │   ├── homme.webp           ← Investisseur
-│   │   └── femme2.webp          ← Autres pros
-│   ├── icones/
-│   │   ├── poignée-de-mai_.svg  ← Barre bas EcosystemSection
-│   │   ├── user-group.svg       ← "Collaboratif" barre bas
-│   │   └── support.svg          ← "Accompagnement IA" TrustSection
-│   └── acheteur/
-│       ├── fond_acheteur.webp   ← Hero acheteur background
-│       ├── phone_acheteurs.webp ← Téléphone hero acheteur
-│       ├── section-profile.webp ← Visuel ProfileSection (2 téléphones)
-│       ├── logo-app.webp        ← Logo app carré (CtaBanner)
-│       ├── match_tel.webp       ← Innovation 1 (géolocalisation)
-│       ├── offre_achat.webp     ← Innovation 2 (offre achat)
-│       ├── dossier_notaire.webp ← Innovation 3 (dossier notaire)
-│       └── coach_vocal.webp     ← Innovation 4 (coach vocal)
+│   ├── portrait/                ← Portraits webp
+│   ├── icones/                  ← Icônes SVG
+│   ├── vendeur/                 ← Assets vendeur
+│   ├── investisseur/            ← Assets investisseur (hero_sir, hero_phone, hero_fond)
+│   ├── professionel/            ← Assets pro (phone_pro, background_pro)
+│   └── partenaire/              ← Assets partenaires (check_partenaire, phone_partenaire_2)
 └── RECAP.md
 ```
 
@@ -72,27 +91,84 @@ imoni-app/
 ## Pages
 
 ### Homepage ✅
-1. **Navbar** — logo SVG, dégradé CTA `rounded-lg`, transparent → dark au scroll
-2. **HeroSection** — fond `fond_accueille.png`, overlay, badge violet, titre dégradé, mockup `mockup-iphone-2.png`, coach vocal card waveform
-3. **EcosystemSection** — `max-w-[90rem]`, 4 cards colorées (rose/bleu/vert/violet), portraits webp, badges colorés pleins, barre bas avec séparateurs + icônes custom
-4. **TrustSection** — fond dark navy + dot grid, layout gauche/droite, 5 piliers cercles colorés (fond transparent, bordure colorée), `support.svg` pour Accompagnement IA
+1. **Navbar** — logo SVG, dégradé CTA, transparent → dark au scroll
+2. **HeroSection** — fond image, overlay, badge violet, titre dégradé, mockup 2 phones, coach vocal card
+3. **EcosystemSection** — 4 cards colorées, portraits webp, badges
+4. **TrustSection** — fond dark navy + dot grid, 5 piliers cercles colorés
 5. **WhyImoniSection** — 3 colonnes texte/vidéo/bénéfices
-6. **Footer (CTA)** — CTA "Prêt à vivre l'expérience Imoni" + QR code (homepage only)
-7. **FooterNav** — logo + colonnes liens + réseaux sociaux + bottom bar (toutes les pages)
+6. **Footer CTA** — homepage only
+7. **FooterNav** — toutes les pages
 
 ### Page Acheteur ✅
-1. **AcheteurHero** — fond dark `fond_acheteur.webp`, parallax, téléphone 3D perspective, 4 cartes flottantes animées (`breathe1-4`), vague bas `#F8F4FF`
-2. **ProfileSection** — fond `bg-[#F8F4FF]`, 2 colonnes (visuel gauche `-translate-x-8` / texte droite), 4 bénéfices avec icônes, CTA dégradé
-3. **InnovationsSection** — `bg-white`, scroll-driven horizontal (4 cards × 100vh), scale + opacity sur cards inactives, progress dots colorés, blobs décoratifs en fond
-4. **CtaBanner** — rectangle `rounded-2xl` débordant `-mt-28`, dégradé indigo→violet, logo-app 112px, boutons store noirs, CTA dégradé `rounded-full`
+1. **AcheteurHero** — fond dark, parallax, téléphone 3D perspective, 3 cartes flottantes animées
+2. **ProfileSection** — fond `#F8F4FF`, 2 colonnes, 4 bénéfices
+3. **InnovationsSection** — scroll-driven horizontal (4 cards)
+4. **CtaBanner** — rectangle dégradé indigo→violet
 
-### Page Vendeur 🔲 (à construire)
-- Page vide actuellement — `app/vendeur/page.tsx`
+### Page Vendeur ✅
+1. **VendeurHero** — fond dark, phone + cartes latérales (géolocalisation, acquéreurs)
+2. **AlgorithmeSection** — explication matching
+3. **AvantagesSection** — bénéfices vendeur
+4. **SecuriteSection** — sécurité et confidentialité
 
-### Pages à construire 🔲
-- Pro de l'immo (`app/pro-immo/page.tsx`)
-- Autres pros (`app/autres-pros/page.tsx`)
-- Pourquoi Imoni (`app/pourquoi-imoni/page.tsx`)
+### Page Investisseur ✅
+1. **InvestisseurHero** — fond image + homme + phone profil investisseur + badge "Une première en France"
+2. **ProfilStrategie** — carousel stack auto-slide
+3. **OpportunitesSection** — timeline verticale alternée
+4. **ReassuranceBand** — bande dark 4 items
+5. **InvestisseurCta**
+
+### Page Professionnels ✅
+1. **ProHero** — fond dark parallax + phone + badge cercle "3 mois offerts"
+2. **AvantagesProSection**
+3. **ProCta**
+
+### Page Partenaires ✅
+1. **PartenairesHero** — fond warm blurred + personnages + carte notification flottante
+2. **NotificationsSection** — phone + 4 notifications intelligentes en quinconce
+3. **CiblageSection** — ciblage des partenaires
+4. **CarrouselPartenaires**
+
+---
+
+## Splash Screen
+
+- **SplashScreen.tsx** — écran de chargement à l'entrée du site
+  - Fond `#0D0F1A`, logo blanc Imoni centré, barre dégradée violet→rose→orange
+  - S'affiche uniquement à la première visite de la session (`sessionStorage`)
+  - Durée : 2.6s remplissage + 0.5s fade-out
+  - Chargé via `dynamic(ssr: false)` dans `SplashWrapper.tsx` pour éviter les erreurs d'hydratation
+  - Animation CSS `splash-bar` définie dans `globals.css`
+
+---
+
+## Responsive Design
+
+### Breakpoints Tailwind
+
+| Breakpoint | Viewport | Cible |
+|---|---|---|
+| base | < 640px | Téléphones (375px ref) |
+| `sm:` | 640-1023px | Tablettes |
+| `lg:` | 1024-1535px | **Laptops / MacBook Air** (~1280-1440px) — éléments réduits |
+| `2xl:` | 1536px+ | **Écrans 24"** (1920px+) — dimensions de référence |
+
+### Stratégie
+- **Référence design** : écran 24 pouces (1920px) → valeurs `2xl:`
+- **Laptop** : tailles réduites (~70%) pour titres, phones, badges → valeurs `lg:`
+- **Mobile/Tablette** : layout empilé, éléments adaptés → valeurs base / `sm:`
+- Container `max-w-7xl` (1280px) centré sur desktop
+- `overflow-hidden` sur les sections pour éviter les débordements
+
+### Composants adaptés (lg: → 2xl:)
+- **HeroSection** : titre 3rem → 4.5rem, phones w-100 → w-140, rapprochés du texte
+- **AcheteurHero** : phone w-100/h-140, cartes flottantes décalées (-left-28, -right-32)
+- **VendeurHero** : phone w-72 → w-80, bloc rapproché du texte (lg:-ml-12)
+- **ProHero** : phone w-120/h-165 → w-150/h-200, badge w-56 → w-68, collé au phone
+- **InvestisseurHero** : homme w-100 → w-150, phone w-100 → w-140, badge w-52 → w-72, groupe positionné à right-[28%]
+- **PartenairesHero** : titre text-5xl → text-7xl, padding pl-16 → pl-36, carte notif right-[13%] → right-[16%]
+- **NotificationsSection** : phone h-550px → h-700px, padding réduit
+- **EcosystemSection** : titre 2rem → 2.6rem
 
 ---
 
@@ -111,24 +187,27 @@ imoni-app/
 
 ---
 
-## Système de layout footer
-
-- **`FooterNav`** → dans `layout.tsx`, affiché sur toutes les pages
-- **`Footer` (CTA)** → importé dans `app/page.tsx` uniquement (homepage)
-- **`CtaBanner`** → spécifique à chaque page (acheteur, vendeur, etc.)
-
----
-
 ## Animations
 
 | Nom | Description |
 |---|---|
+| `splash-bar` | Remplissage barre splash screen (0% → 100%) |
 | `pulseWave` / `wave-bar` | Barres waveform du coach vocal |
-| `breathe1-4` | Cartes flottantes hero acheteur |
-| `reveal` / `reveal-left` / `reveal-right` / `reveal-scale` | Apparition au scroll |
+| `breathe1-4` | Cartes/badges flottants animés |
+| `reveal` / `reveal-left` / `reveal-right` / `reveal-scale` | Apparition au scroll (IntersectionObserver) |
 | Hover cards | `-translate-y-1` + shadow sur survol |
 | Navbar | Transition bg transparent → opaque |
 | InnovationsSection | Scroll-driven horizontal (translateX) |
+
+---
+
+## Notes techniques
+
+- **Tailwind v4** : utiliser `bg-linear-to-r` (PAS `bg-gradient-to-r`)
+- **Images** : `placeholder="blur"` avec `blurDataURL` pour le chargement
+- **Next.js 16** : lire les guides dans `node_modules/next/dist/docs/` avant de coder
+- **SplashScreen** : obligatoirement chargé avec `dynamic(ssr: false)` via un wrapper client pour éviter les erreurs d'hydratation SSR
+- **Parallax** : hook `useParallax` utilisé sur les heroes avec fond image
 
 ---
 
@@ -136,8 +215,8 @@ imoni-app/
 
 ```bash
 npm run dev       # → http://localhost:3000
-npm run build
-npm run start
+npm run build     # Build production
+npm run start     # Serveur production
 ```
 
 ---
@@ -147,18 +226,15 @@ npm run start
 - [x] Homepage complète
 - [x] Page Acheteur complète
 - [x] Page Vendeur complète
-- [ ] **Page Investisseur** — en cours
-  - [x] Hero (fond image + sir + phone + badge cercle)
-  - [x] ProfilStrategie (carousel stack auto-slide)
-  - [x] OpportunitesSection (timeline verticale alternée + images)
-  - [x] ReassuranceBand (bande dark 4 items)
-  - [x] InvestisseurCta
-  - [ ] **⚠️ Revoir la transition ReassuranceBand → CTA** — l'effet sticky/scroll-over ne fonctionne pas bien, le CTA n'a pas le temps de recouvrir la bande. À repenser (parallax, suppression de la bande, ou intégration dans le CTA).
-- [ ] Page Pro de l'immo
-- [ ] Page Autres pros
-- [ ] Page Pourquoi Imoni
+- [x] Page Investisseur complète
+- [x] Page Professionnels complète
+- [x] Page Partenaires complète
+- [x] Responsive mobile/tablette (base + sm:)
+- [x] Responsive laptop (lg: breakpoint)
+- [x] Splash screen (première visite)
+- [ ] Page Contact
 - [ ] Vrais liens App Store / Google Play
 - [ ] Vrai QR code
 - [ ] Vraie vidéo (WhyImoni)
-- [ ] Déploiement Vercel + domaine
+- [ ] Déploiement domaine final
 - [ ] Schema.org pour GEO SEO

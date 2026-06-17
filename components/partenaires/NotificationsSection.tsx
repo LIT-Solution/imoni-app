@@ -79,17 +79,17 @@ export default function NotificationsSection() {
       <div className="relative flex gap-0 items-center">
 
         {/* Téléphone — collé à gauche, dépasse du conteneur */}
-        <div className="reveal-left shrink-0 pl-28 lg:pl-44">
+        <div className="reveal-left shrink-0 lg:pl-20 2xl:pl-44">
           <img
             src="/partenaire/phone_partenaire_2.webp"
             alt="Application Imoni"
-            className="object-contain drop-shadow-2xl"
-            style={{ height: "700px", width: "auto" }}
+            className="object-contain drop-shadow-2xl lg:h-[550px] 2xl:h-[700px]"
+            style={{ width: "auto" }}
           />
         </div>
 
         {/* Droite : titre + notifications en quinconce */}
-        <div className="flex-1 flex flex-col gap-4 px-10 lg:px-16 max-w-2xl">
+        <div className="flex-1 flex flex-col gap-4 px-10 lg:px-8 2xl:px-16 max-w-2xl">
 
           {/* Titre */}
           <div className="reveal mb-6">

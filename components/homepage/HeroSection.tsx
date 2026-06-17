@@ -17,18 +17,16 @@ export default function HeroSection() {
           fill
           className="object-cover object-center"
           priority
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
         />
       </div>
       <div className="absolute inset-0 bg-linear-to-r from-[#0D0F1A]/90 via-[#0D0F1A]/65 via-50% to-transparent pointer-events-none" />
       <div className="absolute inset-0 bg-linear-to-t from-[#0D0F1A]/40 to-transparent pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:pl-0 xl:pr-0 pt-20 sm:pt-24 pb-8 w-full">
-        <div className="grid lg:grid-cols-[55%_45%] xl:grid-cols-[52%_48%] gap-0 items-start min-h-[calc(100vh-6rem)]">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 2xl:pl-0 2xl:pr-0 pt-20 sm:pt-24 pb-8 w-full">
+        <div className="grid lg:grid-cols-[52%_48%] gap-0 items-start min-h-[calc(100vh-6rem)]">
 
           {/* Colonne gauche */}
-          <div className="flex flex-col justify-start space-y-5 sm:space-y-7 lg:pr-4 pt-8 sm:pt-20 lg:ml-4 xl:ml-8">
+          <div className="flex flex-col justify-start space-y-5 sm:space-y-7 lg:pr-4 pt-8 sm:pt-20 lg:ml-4 2xl:ml-8">
             <div className="reveal-left">
               <span className="inline-flex items-center bg-purple-900/30 border border-purple-400/30 text-white/90 text-[10px] sm:text-xs font-semibold px-4 sm:px-5 py-2 rounded-full tracking-[0.15em] uppercase">
                 Le site de rencontre immobilier
@@ -36,15 +34,15 @@ export default function HeroSection() {
             </div>
 
             <div className="reveal-left reveal-delay-1">
-              <h1 className="text-3xl sm:text-5xl lg:text-[3.2rem] xl:text-[4.5rem] font-extrabold text-white leading-[1.08] tracking-tight">
+              <h1 className="text-3xl sm:text-5xl lg:text-[3rem] 2xl:text-[4.5rem] font-extrabold text-white leading-[1.08] tracking-tight">
                 L&apos;immobilier<br />devrait être
               </h1>
-              <h1 className="text-3xl sm:text-5xl lg:text-[3.2rem] xl:text-[4.5rem] font-extrabold leading-[1.08] tracking-tight bg-linear-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] bg-clip-text text-transparent">
+              <h1 className="text-3xl sm:text-5xl lg:text-[3rem] 2xl:text-[4.5rem] font-extrabold leading-[1.08] tracking-tight bg-linear-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] bg-clip-text text-transparent">
                 une rencontre.
               </h1>
             </div>
 
-            <p className="reveal-left reveal-delay-2 text-white text-base sm:text-lg lg:text-xl leading-relaxed max-w-lg">
+            <p className="reveal-left reveal-delay-2 text-white text-base sm:text-lg lg:text-base 2xl:text-xl leading-relaxed max-w-lg">
               Imoni connecte vendeurs, acquéreurs et professionnels<br className="hidden sm:block" /> dans un écosystème intelligent, neutre et sécurisé.
             </p>
 
@@ -93,18 +91,16 @@ export default function HeroSection() {
           </div>
 
           {/* Colonne droite — phones */}
-          <div className="reveal-right reveal-delay-2 relative flex justify-center lg:justify-end items-start lg:translate-x-0 xl:translate-x-8 pt-0">
-            <div className="relative drop-shadow-2xl -translate-y-4 sm:-translate-y-12 translate-x-0 sm:-translate-x-20 lg:-translate-x-8 xl:-translate-x-20">
-              <div className="relative w-56 sm:w-100 lg:w-105 xl:w-125 2xl:w-140 h-72 sm:h-130 lg:h-140 xl:h-165 2xl:h-180">
+          <div className="reveal-right reveal-delay-2 relative flex justify-center lg:justify-end items-start lg:-translate-x-8 2xl:translate-x-8 pt-0">
+            <div className="relative drop-shadow-2xl -translate-y-4 sm:-translate-y-12 translate-x-0 sm:-translate-x-20 lg:-translate-x-4 2xl:-translate-x-20">
+              <div className="relative w-56 sm:w-100 lg:w-115 2xl:w-140 h-72 sm:h-130 lg:h-150 2xl:h-180">
                 <Image
                   src="/mockup-iphone-2.png"
                   alt="Imoni app"
                   fill
                   className="object-contain object-bottom"
                   priority
-                  placeholder="blur"
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
-                  sizes="(max-width: 640px) 224px, (max-width: 1024px) 400px, 560px"
+                          sizes="(max-width: 640px) 224px, (max-width: 1024px) 400px, 560px"
                 />
               </div>
 

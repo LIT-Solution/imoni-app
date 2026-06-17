@@ -77,8 +77,6 @@ export default function SecuriteSection() {
             src="/vendeur/couple-heuruex.webp"
             alt="Couple heureux vendeur Imoni"
             fill
-            quality={100}
-            unoptimized
             className="object-cover"
             style={{ objectPosition: "center 40%" }}
             sizes="50vw"

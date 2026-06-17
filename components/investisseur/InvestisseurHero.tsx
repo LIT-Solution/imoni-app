@@ -15,18 +15,14 @@ export default function InvestisseurHero() {
           src="/investisseur/hero_fond.webp"
           alt=""
           fill
-          quality={100}
-          unoptimized
           className="object-cover object-center"
           priority
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
         />
         <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(13,15,26,0.97) 0%, rgba(13,15,26,0.9) 35%, rgba(13,15,26,0.4) 60%, transparent 100%)" }} />
       </div>
 
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-32 xl:px-56 pt-24 sm:pt-28 pb-12 sm:pb-16">
-        <div className="lg:max-w-[50%]">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-20 2xl:px-56 pt-24 sm:pt-28 pb-12 sm:pb-16">
+        <div className="lg:max-w-[55%] 2xl:max-w-[50%]">
 
           {/* Gauche — texte */}
           <div className="flex flex-col justify-center space-y-5 sm:space-y-6">
@@ -38,13 +34,13 @@ export default function InvestisseurHero() {
             </div>
 
             <div className="reveal-left reveal-delay-1">
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-[3.4rem] font-extrabold text-white leading-[1.08]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.4rem] 2xl:text-[3.4rem] font-extrabold text-white leading-[1.08]">
                 Votre stratégie
               </h1>
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-[3.4rem] font-extrabold text-white leading-[1.08] mt-1">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.4rem] 2xl:text-[3.4rem] font-extrabold text-white leading-[1.08] mt-1">
                 mérite les bonnes
               </h1>
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-[3.4rem] font-extrabold leading-[1.08] mt-1">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.4rem] 2xl:text-[3.4rem] font-extrabold leading-[1.08] mt-1">
                 <span className="text-[#8B5CF6]">opportunités.</span>
               </h1>
             </div>
@@ -84,43 +80,35 @@ export default function InvestisseurHero() {
       </div>
 
       {/* Droite — homme + téléphone calés en bas de section */}
-      <div className="reveal-right reveal-delay-2 hidden lg:block absolute bottom-0 right-[25%] xl:right-[30%]">
+      <div className="reveal-right reveal-delay-2 hidden lg:block absolute bottom-0 lg:right-[28%] 2xl:right-[30%]">
         <div className="relative">
           <Image
             src="/investisseur/hero_sir.webp"
             alt="Investisseur"
             width={600}
             height={750}
-            quality={100}
-            unoptimized
-            className="object-contain"
+            className="object-contain lg:w-100 2xl:w-150"
             priority
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
-            style={{ width: "600px", height: "auto", maxWidth: "100%" }}
+            style={{ height: "auto", maxWidth: "100%" }}
           />
-          <div className="absolute -right-80 -bottom-8 w-140">
+          <div className="absolute lg:-right-52 2xl:-right-80 -bottom-8 lg:w-100 2xl:w-140">
             <Image
               src="/investisseur/hero_phone.webp"
               alt="Application Imoni - Profil investisseur"
               width={560}
               height={1120}
-              quality={100}
-              unoptimized
               className="drop-shadow-2xl"
               priority
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
               style={{ width: "100%", height: "auto", maxWidth: "100%" }}
             />
 
             {/* Badge "Une première en France" */}
-            <div className="absolute bottom-10 -right-40 w-72 h-72 rounded-full flex flex-col items-center justify-center text-center -z-10" style={{ background: "rgba(139,92,246,0.15)", border: "2px solid #8B5CF6", backdropFilter: "blur(12px)" }}>
-              <svg className="w-8 h-8 text-[#F59E0B] mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
+            <div className="absolute lg:bottom-8 2xl:bottom-10 lg:-right-24 2xl:-right-40 lg:w-52 lg:h-52 2xl:w-72 2xl:h-72 rounded-full flex flex-col items-center justify-center text-center -z-10" style={{ background: "rgba(139,92,246,0.15)", border: "2px solid #8B5CF6", backdropFilter: "blur(12px)" }}>
+              <svg className="w-5 h-5 2xl:w-8 2xl:h-8 text-[#F59E0B] mb-1 2xl:mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.5}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-4.5A3.375 3.375 0 0012.75 9.75h-1.5A3.375 3.375 0 007.5 13.5v.75m9 4.5l1.5-6m-12 6l-1.5-6m3-3.75h6" />
               </svg>
-              <p className="text-white text-lg font-extrabold uppercase tracking-wider leading-tight">Une première<br />en France</p>
-              <p className="text-white text-base mt-2 leading-tight px-5">Un espace dédié aux investisseurs, marchands de biens et promoteurs.</p>
+              <p className="text-white lg:text-xs 2xl:text-lg font-extrabold uppercase tracking-wider leading-tight">Une première<br />en France</p>
+              <p className="text-white lg:text-[10px] 2xl:text-base mt-1 2xl:mt-2 leading-tight px-3 2xl:px-5 lg:hidden 2xl:block">Un espace dédié aux investisseurs, marchands de biens et promoteurs.</p>
             </div>
           </div>
         </div>

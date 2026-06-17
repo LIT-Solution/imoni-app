@@ -140,8 +140,6 @@ export default function ProCta() {
                 className="object-contain object-bottom"
                 sizes="500px"
                 quality={95}
-                placeholder="blur"
-                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
               />
             </div>
           </div>

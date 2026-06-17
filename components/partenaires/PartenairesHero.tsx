@@ -28,12 +28,12 @@ export default function PartenairesHero() {
       <img
         src="/partenaire/check_partenaire.webp"
         alt="Partenaires Imoni"
-        className="absolute bottom-0 right-0 z-10 object-contain object-bottom pointer-events-none hidden sm:block"
-        style={{ height: "100%", width: "auto", maxWidth: "55%" }}
+        className="absolute bottom-0 right-0 z-10 object-contain object-bottom pointer-events-none hidden sm:block lg:max-w-[60%] 2xl:max-w-[55%]"
+        style={{ height: "105%", width: "auto" }}
       />
 
       {/* Carte notification flottante */}
-      <div className="absolute top-[42%] right-[16%] z-20 bg-white/90 backdrop-blur-sm rounded-2xl p-4 w-52 sm:w-56 hidden md:block" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.12)", border: "1px solid rgba(233,30,140,0.1)" }}>
+      <div className="absolute top-[42%] lg:right-[13%] 2xl:right-[16%] z-20 bg-white/90 backdrop-blur-sm rounded-2xl p-4 w-52 sm:w-56 hidden md:block" style={{ boxShadow: "0 8px 32px rgba(0,0,0,0.12)", border: "1px solid rgba(233,30,140,0.1)" }}>
         <div className="flex items-start gap-3">
           <div className="w-9 h-9 rounded-full bg-[#E91E8C] flex items-center justify-center shrink-0">
             <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
@@ -45,7 +45,7 @@ export default function PartenairesHero() {
         </div>
       </div>
 
-      <div className="relative z-10 w-full pl-0 sm:pl-12 lg:pl-20 xl:pl-36 pr-4">
+      <div className="relative z-10 w-full pl-0 sm:pl-12 lg:pl-16 2xl:pl-36 pr-4">
         <div className="grid lg:grid-cols-[3fr_2fr] gap-8 items-center">
 
           {/* Gauche — texte */}
@@ -57,7 +57,7 @@ export default function PartenairesHero() {
             </div>
 
             <div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-[#0D0F1A] leading-[1.05]">
+              <h1 className="text-4xl sm:text-5xl lg:text-5xl 2xl:text-7xl font-extrabold text-[#0D0F1A] leading-[1.05]">
                 Devenez partenaire<br /><span className="text-[#E91E8C]">Imoni.</span>
               </h1>
               <p className="text-base sm:text-xl font-semibold text-[#0D0F1A] mt-4 sm:mt-5 leading-snug">

@@ -49,7 +49,6 @@ export default function ProfileSection() {
                 alt="Profil acheteur Imoni"
                 width={400}
                 height={700}
-                quality={100}
                 className="w-full h-auto rounded-3xl shadow-2xl shadow-purple-200/60 object-contain"
               />
             </div>

@@ -17,7 +17,7 @@ export default function CtaBanner() {
           <div className="flex items-center gap-5">
             {/* Logo app */}
             <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-28 lg:h-28 rounded-xl overflow-hidden shrink-0">
-              <Image src="/acheteur/logo-app.webp" alt="Imoni app" width={160} height={160} quality={100} className="w-full h-full object-cover" />
+              <Image src="/acheteur/logo-app.webp" alt="Imoni app" width={160} height={160} className="w-full h-full object-cover" />
             </div>
 
             <div>
