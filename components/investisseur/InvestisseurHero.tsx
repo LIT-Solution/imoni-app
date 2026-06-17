@@ -19,6 +19,8 @@ export default function InvestisseurHero() {
           unoptimized
           className="object-cover object-center"
           priority
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
         />
         <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(13,15,26,0.97) 0%, rgba(13,15,26,0.9) 35%, rgba(13,15,26,0.4) 60%, transparent 100%)" }} />
       </div>
@@ -93,6 +95,8 @@ export default function InvestisseurHero() {
             unoptimized
             className="object-contain"
             priority
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
             style={{ width: "600px", height: "auto", maxWidth: "100%" }}
           />
           <div className="absolute -right-80 -bottom-8 w-140">
@@ -105,6 +109,8 @@ export default function InvestisseurHero() {
               unoptimized
               className="drop-shadow-2xl"
               priority
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
               style={{ width: "100%", height: "auto", maxWidth: "100%" }}
             />
 

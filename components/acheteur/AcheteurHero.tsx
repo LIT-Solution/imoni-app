@@ -19,6 +19,8 @@ export default function AcheteurHero() {
           fill
           className="object-cover object-center"
           priority
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
         />
       </div>
       <div className="absolute inset-0 bg-linear-to-r from-[#0D0F1A] via-[#0D0F1A]/85 via-55% to-transparent pointer-events-none" />
@@ -90,6 +92,8 @@ export default function AcheteurHero() {
                   fill
                   className="object-contain object-bottom"
                   priority
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
                   sizes="(max-width: 640px) 340px, (max-width: 1024px) 400px, 460px"
                 />
               </div>

@@ -63,7 +63,7 @@ export default function InvestisseurCta() {
         >
           {/* Fond image hero visible à droite */}
           <div className="absolute inset-0 pointer-events-none">
-            <Image src="/investisseur/hero_fond.webp" alt="" fill quality={75} unoptimized className="object-cover object-center" />
+            <Image src="/investisseur/hero_fond.webp" alt="" fill quality={75} unoptimized className="object-cover object-center" placeholder="blur" blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg==" />
             <div className="absolute inset-0" style={{ background: "linear-gradient(to right, #0D0F1A 0%, #0D0F1A 35%, rgba(13,15,26,0.75) 60%, rgba(13,15,26,0.2) 100%)" }} />
           </div>
 

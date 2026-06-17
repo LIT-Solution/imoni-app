@@ -17,6 +17,8 @@ export default function HeroSection() {
           fill
           className="object-cover object-center"
           priority
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
         />
       </div>
       <div className="absolute inset-0 bg-linear-to-r from-[#0D0F1A]/90 via-[#0D0F1A]/65 via-50% to-transparent pointer-events-none" />
@@ -100,6 +102,8 @@ export default function HeroSection() {
                   fill
                   className="object-contain object-bottom"
                   priority
+                  placeholder="blur"
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
                   sizes="(max-width: 640px) 440px, (max-width: 1024px) 520px, 600px"
                 />
               </div>

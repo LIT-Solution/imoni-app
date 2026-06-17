@@ -28,6 +28,8 @@ export default function ProHero() {
           fill
           className="object-cover object-center"
           priority
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
         />
       </div>
       <div className="absolute inset-0 bg-linear-to-r from-[#0D0F1A] via-[#0D0F1A]/90 via-55% to-[#0D0F1A]/30 pointer-events-none" />
@@ -92,6 +94,8 @@ export default function ProHero() {
                 fill
                 className="object-contain object-bottom"
                 priority
+                placeholder="blur"
+                blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPj/HwADBwIAMCbHYQAAAABJRU5ErkJggg=="
                 sizes="(max-width: 640px) 300px, (max-width: 1024px) 350px, 400px"
               />
             </div>
