@@ -50,14 +50,33 @@ const innovations = [
   },
 ];
 
-const CARD_WIDTH = 700;
 const CARD_GAP = 16;
-const PEEK = 60;
 
 export default function InnovationsSection() {
   const titleRef = useReveal(0.05);
   const sectionRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
+  const [cardWidth, setCardWidth] = useState(700);
+  const [peek, setPeek] = useState(60);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      if (w < 640) {
+        setCardWidth(w - 40);
+        setPeek(20);
+      } else if (w < 1024) {
+        setCardWidth(Math.min(600, w - 80));
+        setPeek(40);
+      } else {
+        setCardWidth(700);
+        setPeek(60);
+      }
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -72,7 +91,7 @@ export default function InnovationsSection() {
   }, []);
 
   const totalCards = innovations.length;
-  const maxOffset = (totalCards - 1) * (CARD_WIDTH + CARD_GAP);
+  const maxOffset = (totalCards - 1) * (cardWidth + CARD_GAP);
   const translateX = -(progress * maxOffset);
 
   return (
@@ -81,24 +100,24 @@ export default function InnovationsSection() {
         <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center">
           {/* Background décoration */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-[#8B5CF6]/6 blur-[120px]" />
-            <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#E91E8C]/5 blur-[120px]" />
-            <div className="absolute top-[40%] left-[40%] w-[300px] h-[300px] rounded-full bg-[#FF8C00]/4 blur-[100px]" />
+            <div className="absolute top-[-10%] left-[-5%] w-60 sm:w-125 h-60 sm:h-125 rounded-full bg-[#8B5CF6]/6 blur-[120px]" />
+            <div className="absolute bottom-[-10%] right-[-5%] w-60 sm:w-125 h-60 sm:h-125 rounded-full bg-[#E91E8C]/5 blur-[120px]" />
+            <div className="absolute top-[40%] left-[40%] w-40 sm:w-75 h-40 sm:h-75 rounded-full bg-[#FF8C00]/4 blur-[100px]" />
           </div>
 
           {/* Title */}
-          <div className="text-center max-w-3xl mx-auto mb-6 px-4">
-            <span className="inline-block text-[#8B5CF6] text-xs font-bold tracking-widest uppercase mb-3">
+          <div className="text-center max-w-3xl mx-auto mb-4 sm:mb-6 px-4">
+            <span className="inline-block text-[#8B5CF6] text-xs font-bold tracking-widest uppercase mb-2 sm:mb-3">
               Les innovations Imoni
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold text-[#0D0F1A] leading-tight mb-3">
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.6rem] font-extrabold text-[#0D0F1A] leading-tight mb-2 sm:mb-3">
               4 expériences{" "}
               <span className="bg-linear-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00] bg-clip-text text-transparent">
                 inédites
               </span>{" "}
               en France
             </h2>
-            <p className="text-gray-500 text-base sm:text-lg leading-relaxed">
+            <p className="text-gray-500 text-sm sm:text-base lg:text-lg leading-relaxed">
               Imoni réinvente chaque étape de votre parcours immobilier avec des
               fonctionnalités uniques.
             </p>
@@ -109,24 +128,24 @@ export default function InnovationsSection() {
             className="flex transition-none"
             style={{
               gap: `${CARD_GAP}px`,
-              paddingLeft: `${PEEK}px`,
+              paddingLeft: `${peek}px`,
               transform: `translateX(${translateX}px)`,
             }}
           >
             {innovations.map((item, i) => {
-              const cardCenter = i * (CARD_WIDTH + CARD_GAP);
+              const cardCenter = i * (cardWidth + CARD_GAP);
               const currentCenter = progress * maxOffset;
               const distance = Math.abs(cardCenter - currentCenter);
-              const isActive = distance < (CARD_WIDTH + CARD_GAP) / 2;
+              const isActive = distance < (cardWidth + CARD_GAP) / 2;
               const scale = isActive ? 1 : 0.92;
               const opacity = isActive ? 1 : 0.5;
 
               return (
                 <div
                   key={item.number}
-                  className="shrink-0 rounded-3xl overflow-hidden relative transition-all duration-300"
+                  className="shrink-0 rounded-2xl sm:rounded-3xl overflow-hidden relative transition-all duration-300"
                   style={{
-                    width: `${CARD_WIDTH}px`,
+                    width: `${cardWidth}px`,
                     background: `linear-gradient(135deg, ${item.bgFrom} 0%, ${item.bgTo} 100%)`,
                     boxShadow: isActive
                       ? `0 8px 32px ${item.color}20, 0 2px 8px rgba(0,0,0,0.06)`
@@ -135,21 +154,21 @@ export default function InnovationsSection() {
                     opacity,
                   }}
                 >
-                  <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] min-h-75">
+                  <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] min-h-48 sm:min-h-75">
                     {/* Text */}
-                    <div className="p-6 lg:p-8 flex flex-col justify-center relative z-10">
-                      <div className="flex items-start gap-4 mb-4">
+                    <div className="p-4 sm:p-6 lg:p-8 flex flex-col justify-center relative z-10">
+                      <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
                         <span
-                          className={`w-11 h-11 rounded-xl bg-linear-to-br ${item.gradient} text-white text-lg font-bold flex items-center justify-center shrink-0 mt-0.5`}
+                          className={`w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-linear-to-br ${item.gradient} text-white text-base sm:text-lg font-bold flex items-center justify-center shrink-0 mt-0.5`}
                           style={{ boxShadow: `0 6px 16px ${item.color}40` }}
                         >
                           {item.number}
                         </span>
-                        <h3 className="font-extrabold text-[#0D0F1A] text-xl lg:text-2xl leading-tight">
+                        <h3 className="font-extrabold text-[#0D0F1A] text-lg sm:text-xl lg:text-2xl leading-tight">
                           {item.title}
                         </h3>
                       </div>
-                      <p className="text-gray-500 text-[15px] leading-relaxed ml-15 max-w-sm">
+                      <p className="text-gray-500 text-xs sm:text-[15px] leading-relaxed ml-12 sm:ml-15 max-w-sm">
                         {item.description}
                       </p>
                     </div>
@@ -173,11 +192,11 @@ export default function InnovationsSection() {
 
                   {/* Decorative circles */}
                   <div
-                    className="absolute -right-16 -bottom-16 w-64 h-64 rounded-full opacity-[0.07] pointer-events-none"
+                    className="absolute -right-16 -bottom-16 w-40 sm:w-64 h-40 sm:h-64 rounded-full opacity-[0.07] pointer-events-none"
                     style={{ backgroundColor: item.color }}
                   />
                   <div
-                    className="absolute -right-8 top-8 w-32 h-32 rounded-full opacity-[0.05] pointer-events-none"
+                    className="absolute -right-8 top-8 w-20 sm:w-32 h-20 sm:h-32 rounded-full opacity-[0.05] pointer-events-none"
                     style={{ backgroundColor: item.color }}
                   />
                 </div>
@@ -186,11 +205,11 @@ export default function InnovationsSection() {
           </div>
 
           {/* Progress dots */}
-          <div className="flex justify-center gap-2.5 mt-6">
+          <div className="flex justify-center gap-2 sm:gap-2.5 mt-4 sm:mt-6">
             {innovations.map((item, i) => {
-              const cardCenter = i * (CARD_WIDTH + CARD_GAP);
+              const cardCenter = i * (cardWidth + CARD_GAP);
               const currentCenter = progress * maxOffset;
-              const active = Math.abs(cardCenter - currentCenter) < (CARD_WIDTH + CARD_GAP) / 2;
+              const active = Math.abs(cardCenter - currentCenter) < (cardWidth + CARD_GAP) / 2;
               return (
                 <div
                   key={i}

@@ -66,7 +66,7 @@ export default function ProfileSection() {
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold text-[#0D0F1A] leading-tight">
                 Votre profil attire les{" "}
-                <span className="bg-gradient-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00] bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00] bg-clip-text text-transparent">
                   bonnes opportunités
                 </span>
               </h2>
@@ -97,7 +97,7 @@ export default function ProfileSection() {
 
             <a
               href="#"
-              className="group inline-flex items-center gap-3 bg-gradient-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00] text-white font-semibold text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-500/30"
+              className="group inline-flex items-center gap-3 bg-linear-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00] text-white font-semibold text-base px-7 py-3.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-purple-500/30"
             >
               Créer mon profil gratuitement
               <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">→</span>

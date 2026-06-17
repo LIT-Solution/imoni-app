@@ -59,7 +59,7 @@ export default function AvantagesSection() {
     <section ref={sectionRef} className="relative overflow-hidden bg-white -mt-8">
       <div className="absolute inset-0" style={{ backgroundImage: "radial-gradient(circle, rgba(139,92,246,0.06) 1px, transparent 1px)", backgroundSize: "32px 32px" }} />
 
-      <div className="relative flex min-h-[700px] lg:min-h-[780px]">
+      <div className="relative flex min-h-125 sm:min-h-175 lg:min-h-195">
 
         {/* Gauche — image pleine hauteur */}
         <div className="hidden lg:block relative w-[42%] shrink-0">
@@ -87,7 +87,7 @@ export default function AvantagesSection() {
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0D0F1A] leading-tight">
               Maîtrisez votre vente,{" "}
-              <span className="bg-gradient-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00] bg-clip-text text-transparent">
                 en toute sérénité
               </span>
             </h2>

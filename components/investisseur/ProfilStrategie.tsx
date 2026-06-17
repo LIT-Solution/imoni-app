@@ -38,6 +38,14 @@ const slides = [
 export default function ProfilStrategie() {
   const sectionRef = useReveal(0.05);
   const [current, setCurrent] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % slides.length);
@@ -49,23 +57,23 @@ export default function ProfilStrategie() {
   }, [next]);
 
   return (
-    <section ref={sectionRef} className="py-20 lg:py-28 relative overflow-hidden" style={{ background: "#F3F0FF" }}>
-      <div className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full opacity-10 blur-xl pointer-events-none bg-[#8B5CF6]" />
-      <div className="absolute -bottom-20 -left-20 w-[350px] h-[350px] rounded-full opacity-8 blur-xl pointer-events-none bg-[#8B5CF6]" />
+    <section ref={sectionRef} className="py-16 sm:py-20 lg:py-28 relative overflow-hidden" style={{ background: "#F3F0FF" }}>
+      <div className="absolute -top-20 -right-20 w-60 sm:w-100 h-60 sm:h-100 rounded-full opacity-10 blur-xl pointer-events-none bg-[#8B5CF6]" />
+      <div className="absolute -bottom-20 -left-20 w-52 sm:w-88 h-52 sm:h-88 rounded-full opacity-8 blur-xl pointer-events-none bg-[#8B5CF6]" />
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, #8B5CF6 1.5px, transparent 1.5px)", backgroundSize: "30px 30px" }} />
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="reveal-scale text-center mb-14">
-          <span className="inline-block text-[#8B5CF6] text-xs font-bold tracking-[0.2em] uppercase mb-4">Votre profil complet</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0D0F1A] leading-tight">
+        <div className="reveal-scale text-center mb-8 sm:mb-14">
+          <span className="inline-block text-[#8B5CF6] text-xs font-bold tracking-[0.2em] uppercase mb-3 sm:mb-4">Votre profil complet</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-[#0D0F1A] leading-tight">
             Décrivez <span className="text-[#8B5CF6]">qui vous êtes</span> et votre stratégie
           </h2>
-          <p className="text-gray-500 text-base mt-4 max-w-2xl mx-auto">
+          <p className="text-gray-500 text-sm sm:text-base mt-3 sm:mt-4 max-w-2xl mx-auto">
             Un profil investisseur complet pour des opportunités parfaitement alignées avec vos objectifs.
           </p>
         </div>
 
         {/* Coverflow 3D */}
-        <div className="relative h-[520px] flex items-center justify-center" style={{ perspective: "1200px" }}>
+        <div className="relative h-96 sm:h-110 lg:h-130 flex items-center justify-center" style={{ perspective: "1200px" }}>
           {slides.map((slide, i) => {
             const total = slides.length;
             const rawOffset = (i - current + total) % total;
@@ -73,8 +81,9 @@ export default function ProfilStrategie() {
             const isActive = signedOffset === 0;
             const abs = Math.abs(signedOffset);
 
-            const translateX = signedOffset * 260;
-            const rotateY = signedOffset * -38;
+            const step = isMobile ? 120 : 260;
+            const translateX = signedOffset * step;
+            const rotateY = signedOffset * (isMobile ? -25 : -38);
             const scale = isActive ? 1 : Math.max(0.72, 1 - abs * 0.14);
             const opacity = isActive ? 1 : Math.max(0.25, 1 - abs * 0.3);
             const zIndex = total - abs;
@@ -93,7 +102,7 @@ export default function ProfilStrategie() {
                 onClick={() => setCurrent(i)}
               >
                 <div
-                  className="rounded-3xl p-8 flex flex-col"
+                  className="rounded-2xl sm:rounded-3xl p-5 sm:p-8 flex flex-col"
                   style={{
                     background: "#fff",
                     border: isActive ? "1.5px solid rgba(139,92,246,0.35)" : "1.5px solid rgba(139,92,246,0.15)",

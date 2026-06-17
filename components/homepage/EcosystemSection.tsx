@@ -8,13 +8,13 @@ export default function EcosystemSection() {
   const sectionRef = useReveal(0.05);
 
   return (
-    <section ref={sectionRef} className="py-20 lg:py-28 bg-white">
+    <section ref={sectionRef} className="py-16 sm:py-20 lg:py-28 bg-white">
       <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="reveal-scale text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold text-[#0D0F1A] leading-tight">
+        <div className="reveal-scale text-center mb-8 sm:mb-14">
+          <h2 className="text-2xl sm:text-3xl lg:text-[2.6rem] font-extrabold text-[#0D0F1A] leading-tight">
             Un écosystème immobilier{" "}
-            <span className="bg-gradient-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] bg-clip-text text-transparent">collaboratif</span>
+            <span className="bg-linear-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] bg-clip-text text-transparent">collaboratif</span>
             <br />
             au service de tous les acteurs
           </h2>
@@ -25,7 +25,7 @@ export default function EcosystemSection() {
           {/* Card 1 — Acheteur / Vendeur */}
           <div className="reveal-scale reveal-delay-1 bg-pink-50 border border-pink-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow">
+              <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full overflow-hidden shrink-0 shadow">
                 <Image src="/portrait/femme1.webp" alt="Acheteur / Vendeur" width={200} height={200} className="object-cover object-top w-full h-full" />
               </div>
               <div className="w-10 h-10 rounded-full bg-[#E91E8C] flex items-center justify-center shrink-0 shadow-md">
@@ -68,7 +68,7 @@ export default function EcosystemSection() {
           {/* Card 2 — Pro de l'immo */}
           <div className="reveal-scale reveal-delay-3 bg-blue-50 border border-blue-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow">
+              <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full overflow-hidden shrink-0 shadow">
                 <Image src="/portrait/homme2.webp" alt="Pro de l'immo" width={200} height={200} className="object-cover object-top w-full h-full" />
               </div>
               <div className="w-10 h-10 rounded-full bg-[#1D6FEB] flex items-center justify-center shrink-0 shadow-md">
@@ -98,7 +98,7 @@ export default function EcosystemSection() {
           {/* Card 3 — Investisseur */}
           <div className="reveal-scale reveal-delay-5 bg-emerald-50 border border-emerald-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow">
+              <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full overflow-hidden shrink-0 shadow">
                 <Image src="/portrait/homme.webp" alt="Investisseur" width={200} height={200} className="object-cover object-top w-full h-full" />
               </div>
               <div className="w-10 h-10 rounded-full bg-[#10B981] flex items-center justify-center shrink-0 shadow-md">
@@ -128,7 +128,7 @@ export default function EcosystemSection() {
           {/* Card 4 — Autres professionnels */}
           <div className="reveal-scale reveal-delay-7 bg-purple-50 border border-purple-100 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow">
+              <div className="w-16 h-16 sm:w-24 sm:h-24 rounded-full overflow-hidden shrink-0 shadow">
                 <Image src="/portrait/femme2.webp" alt="Autres professionnels" width={200} height={200} className="object-cover object-top w-full h-full" />
               </div>
               <div className="w-10 h-10 rounded-full bg-[#7C22E8] flex items-center justify-center shrink-0 shadow-md">

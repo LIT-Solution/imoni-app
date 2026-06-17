@@ -53,7 +53,7 @@ export default function TrustSection() {
           <div className="reveal-left lg:w-[34%] shrink-0">
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-4">
               La confiance au cœur<br />de chaque{" "}
-              <span className="bg-gradient-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] bg-clip-text text-transparent">rencontre</span>
+              <span className="bg-linear-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] bg-clip-text text-transparent">rencontre</span>
             </h2>
             <p className="text-white/50 text-base leading-relaxed">
               Imoni garantit des échanges sécurisés dans un environnement neutre et transparent.
@@ -62,7 +62,7 @@ export default function TrustSection() {
 
           <div className="hidden lg:block w-px self-stretch bg-white/10 shrink-0" />
 
-          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-10">
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 sm:gap-8 lg:gap-10">
             {pillars.map((p, i) => (
               <div
                 key={p.title}

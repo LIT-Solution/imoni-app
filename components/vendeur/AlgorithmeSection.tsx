@@ -82,7 +82,7 @@ export default function AlgorithmeSection() {
             <div>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0D0F1A] leading-tight">
                 Laissez l&apos;algorithme{" "}
-                <span className="bg-gradient-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00] bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00] bg-clip-text text-transparent">
                   élargir vos opportunités.
                 </span>
               </h2>

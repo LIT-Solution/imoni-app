@@ -48,18 +48,18 @@ export default function InvestisseurCta() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative z-10 py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section ref={sectionRef} className="relative z-10 py-12 sm:py-16 lg:py-20 bg-white px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Blobs décoratifs */}
-      <div className="absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full opacity-10 blur-xl pointer-events-none bg-[#8B5CF6]" />
-      <div className="absolute -bottom-20 -left-20 w-[350px] h-[350px] rounded-full opacity-[0.08] blur-xl pointer-events-none bg-[#8B5CF6]" />
+      <div className="absolute -top-20 -right-20 w-60 sm:w-100 h-60 sm:h-100 rounded-full opacity-10 blur-xl pointer-events-none bg-[#8B5CF6]" />
+      <div className="absolute -bottom-20 -left-20 w-52 sm:w-88 h-52 sm:h-88 rounded-full opacity-[0.08] blur-xl pointer-events-none bg-[#8B5CF6]" />
       <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, #8B5CF6 1.5px, transparent 1.5px)", backgroundSize: "30px 30px" }} />
 
       <div className="relative max-w-7xl mx-auto">
 
         {/* Card CTA */}
         <div
-          className="reveal-scale rounded-3xl relative overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #1E1040 0%, #0D0F1A 50%, #1a0830 100%)", boxShadow: "0 24px 80px rgba(139,92,246,0.25)", minHeight: "220px" }}
+          className="reveal-scale rounded-2xl sm:rounded-3xl relative overflow-hidden"
+          style={{ background: "linear-gradient(135deg, #1E1040 0%, #0D0F1A 50%, #1a0830 100%)", boxShadow: "0 24px 80px rgba(139,92,246,0.25)", minHeight: "180px" }}
         >
           {/* Fond image hero visible à droite */}
           <div className="absolute inset-0 pointer-events-none">
@@ -68,14 +68,14 @@ export default function InvestisseurCta() {
           </div>
 
           {/* Contenu */}
-          <div className="relative z-10 flex items-end gap-8 px-12 py-12 lg:px-16">
+          <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-end gap-4 sm:gap-6 lg:gap-8 px-5 sm:px-8 lg:px-16 py-8 sm:py-10 lg:py-12">
 
             {/* Gauche — titre + sous-titre */}
             <div className="shrink-0">
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-white leading-snug">
-                Prêt à recevoir les meilleures<br />opportunités immobilières ?
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white leading-snug">
+                Prêt à recevoir les meilleures<br className="hidden sm:block" /> opportunités immobilières ?
               </h2>
-              <p className="text-white/45 text-base mt-2 leading-relaxed">Téléchargez l'application et créez votre<br className="hidden lg:block" />profil investisseur gratuitement.</p>
+              <p className="text-white/45 text-sm sm:text-base mt-2 leading-relaxed">Téléchargez l&#39;application et créez votre<br className="hidden lg:block" /> profil investisseur gratuitement.</p>
             </div>
 
             {/* Flèche courbée */}
@@ -87,23 +87,23 @@ export default function InvestisseurCta() {
             </div>
 
             {/* Centre — bouton violet + stores */}
-            <div className="flex flex-col items-center gap-4">
-              <div className="flex items-center gap-4 px-6 py-4 rounded-2xl" style={{ background: "linear-gradient(135deg, #7C3AED, #8B5CF6)", boxShadow: "0 8px 28px rgba(139,92,246,0.45)" }}>
-                <svg className="w-7 h-7 text-white/80 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
+            <div className="flex flex-col items-center gap-3 sm:gap-4 w-full lg:w-auto">
+              <div className="flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 sm:py-4 rounded-2xl w-full lg:w-auto" style={{ background: "linear-gradient(135deg, #7C3AED, #8B5CF6)", boxShadow: "0 8px 28px rgba(139,92,246,0.45)" }}>
+                <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white/80 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}><path strokeLinecap="round" strokeLinejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>
                 <div>
-                  <p className="text-white font-bold text-base leading-tight">Télécharger l'application</p>
-                  <p className="text-white/60 text-sm leading-tight">pour créer votre profil investisseur<br />gratuitement</p>
+                  <p className="text-white font-bold text-sm sm:text-base leading-tight">Télécharger l&#39;application</p>
+                  <p className="text-white/60 text-xs sm:text-sm leading-tight">pour créer votre profil investisseur gratuitement</p>
                 </div>
               </div>
-              <div className="flex gap-3">
-                <a href="#" className="flex items-center gap-2.5 bg-black text-white px-4 py-2.5 rounded-xl hover:bg-gray-900 transition-colors">
+              <div className="flex gap-2 sm:gap-3 w-full lg:w-auto">
+                <a href="#" className="flex-1 lg:flex-none flex items-center justify-center gap-2 sm:gap-2.5 bg-black text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl hover:bg-gray-900 transition-colors">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
                   <div>
                     <p className="text-[9px] text-gray-400 leading-none">Télécharger dans</p>
-                    <p className="text-xs font-bold leading-none mt-0.5">l'App Store</p>
+                    <p className="text-xs font-bold leading-none mt-0.5">l&#39;App Store</p>
                   </div>
                 </a>
-                <a href="#" className="flex items-center gap-2.5 bg-black text-white px-4 py-2.5 rounded-xl hover:bg-gray-900 transition-colors">
+                <a href="#" className="flex-1 lg:flex-none flex items-center justify-center gap-2 sm:gap-2.5 bg-black text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl hover:bg-gray-900 transition-colors">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.22.98.14l12.47-7.19-2.79-2.79-10.66 9.84zM.89 1.43C.34 1.76 0 2.36 0 3.08v17.84c0 .72.34 1.32.89 1.65l.09.06 9.99-9.99v-.23L.98 1.37l-.09.06zM20.56 10.29l-2.84-1.64-3.16 3.17 3.16 3.16 2.87-1.66c.82-.47.82-1.56-.03-2.03zM3.18.24l12.47 7.19-2.79 2.79L2.2.38c.3-.17.66-.2.98-.14z"/></svg>
                   <div>
                     <p className="text-[9px] text-gray-400 leading-none uppercase tracking-wide">Disponible sur</p>
@@ -144,13 +144,13 @@ export default function InvestisseurCta() {
           />
         </div>
 
-        {/* 4 pancartes — max-w-5xl centré indépendamment */}
+        {/* 4 pancartes */}
         <div className="max-w-5xl mx-auto">
-        <div ref={itemsRef} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div ref={itemsRef} className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {items.map((item, i) => (
             <div
               key={item.title}
-              className="flex flex-col items-center text-center gap-3 bg-white rounded-2xl p-5"
+              className="flex flex-col items-center text-center gap-2 sm:gap-3 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-5"
               style={{
                 boxShadow: "0 2px 20px rgba(139,92,246,0.1)",
                 border: "1px solid rgba(139,92,246,0.15)",
@@ -160,14 +160,14 @@ export default function InvestisseurCta() {
                 transition: `transform 0.55s cubic-bezier(0.34, 1.4, 0.64, 1) ${0.3 + i * 0.13}s, opacity 0.35s ease ${0.3 + i * 0.13}s`,
               }}
             >
-              <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: "rgba(139,92,246,0.1)", border: "1.5px solid rgba(139,92,246,0.25)" }}>
-                <svg className="w-5 h-5 text-[#8B5CF6]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center" style={{ background: "rgba(139,92,246,0.1)", border: "1.5px solid rgba(139,92,246,0.25)" }}>
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#8B5CF6]" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={1.8}>
                   <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
                 </svg>
               </div>
               <div>
-                <p className="text-gray-900 font-bold text-sm mb-1">{item.title}</p>
-                <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
+                <p className="text-gray-900 font-bold text-xs sm:text-sm mb-1">{item.title}</p>
+                <p className="text-gray-500 text-[10px] sm:text-xs leading-relaxed">{item.desc}</p>
               </div>
             </div>
           ))}

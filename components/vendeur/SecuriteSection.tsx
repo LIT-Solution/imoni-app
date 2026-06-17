@@ -45,7 +45,7 @@ export default function SecuriteSection() {
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0D0F1A] leading-tight">
               Vendez vite,{" "}
-              <span className="bg-gradient-to-r from-[#8B5CF6] to-[#E91E8C] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[#8B5CF6] to-[#E91E8C] bg-clip-text text-transparent">
                 vendez bien
               </span>
             </h2>

@@ -38,6 +38,14 @@ const slides = [
 export default function AvantagesProSection() {
   const sectionRef = useReveal(0.05);
   const [current, setCurrent] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   const next = useCallback(() => {
     setCurrent((prev) => (prev + 1) % slides.length);
@@ -49,14 +57,14 @@ export default function AvantagesProSection() {
   }, [next]);
 
   return (
-    <section ref={sectionRef} className="py-20 lg:py-28 relative overflow-hidden bg-white">
-      <div className="absolute -top-20 -right-20 w-100 h-100 rounded-full opacity-10 blur-xl pointer-events-none bg-[#E91E8C]" />
-      <div className="absolute -bottom-20 -left-20 w-88 h-88 rounded-full opacity-8 blur-xl pointer-events-none bg-[#8B5CF6]" />
+    <section ref={sectionRef} className="py-16 sm:py-20 lg:py-28 relative overflow-hidden bg-white">
+      <div className="absolute -top-20 -right-20 w-60 sm:w-100 h-60 sm:h-100 rounded-full opacity-10 blur-xl pointer-events-none bg-[#E91E8C]" />
+      <div className="absolute -bottom-20 -left-20 w-52 sm:w-88 h-52 sm:h-88 rounded-full opacity-8 blur-xl pointer-events-none bg-[#8B5CF6]" />
 
       <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="reveal-scale text-center mb-8">
-          <span className="inline-block text-[#E91E8C] text-xs font-bold tracking-[0.2em] uppercase mb-4">Vos avantages avec Imoni</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0D0F1A] leading-tight">
+        <div className="reveal-scale text-center mb-6 sm:mb-8">
+          <span className="inline-block text-[#E91E8C] text-xs font-bold tracking-[0.2em] uppercase mb-3 sm:mb-4">Vos avantages avec Imoni</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-5xl font-extrabold text-[#0D0F1A] leading-tight">
             Plus d&apos;acquéreurs, moins de contraintes,{" "}
             <span className="bg-linear-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00] bg-clip-text text-transparent">
               plus de résultats.
@@ -65,7 +73,7 @@ export default function AvantagesProSection() {
         </div>
 
         {/* Coverflow 3D */}
-        <div className="relative h-150 flex items-center justify-center" style={{ perspective: "1200px" }}>
+        <div className="relative h-100 sm:h-125 lg:h-150 flex items-center justify-center" style={{ perspective: "1200px" }}>
           {slides.map((slide, i) => {
             const total = slides.length;
             const rawOffset = (i - current + total) % total;
@@ -73,8 +81,9 @@ export default function AvantagesProSection() {
             const isActive = signedOffset === 0;
             const abs = Math.abs(signedOffset);
 
-            const translateX = signedOffset * 260;
-            const rotateY = signedOffset * -38;
+            const step = isMobile ? 120 : 260;
+            const translateX = signedOffset * step;
+            const rotateY = signedOffset * (isMobile ? -25 : -38);
             const scale = isActive ? 1 : Math.max(0.72, 1 - abs * 0.14);
             const opacity = isActive ? 1 : Math.max(0.25, 1 - abs * 0.3);
             const zIndex = total - abs;
@@ -93,7 +102,7 @@ export default function AvantagesProSection() {
                 onClick={() => setCurrent(i)}
               >
                 <div
-                  className="rounded-3xl p-9 sm:p-10 flex flex-col"
+                  className="rounded-2xl sm:rounded-3xl p-5 sm:p-9 lg:p-10 flex flex-col"
                   style={{
                     background: "#fff",
                     border: isActive ? `1.5px solid ${slide.color}55` : "1.5px solid rgba(0,0,0,0.08)",
