@@ -3,33 +3,36 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function SplashScreen() {
-  const [visible, setVisible] = useState(() => {
-    if (typeof window !== "undefined") {
-      return !sessionStorage.getItem("imoni_loaded");
-    }
-    return true;
-  });
-  const [fading, setFading] = useState(false);
+  const [phase, setPhase] = useState<"hidden" | "visible" | "fading">("hidden");
 
   useEffect(() => {
-    if (!visible) return;
-    const fadeTimer = setTimeout(() => setFading(true), 2600);
-    const hideTimer = setTimeout(() => {
-      setVisible(false);
+    const already = sessionStorage.getItem("imoni_loaded");
+    if (already) return;
+
+    setPhase("visible");
+
+    const fadeTimer = setTimeout(() => setPhase("fading"), 2600);
+    const doneTimer = setTimeout(() => {
+      setPhase("hidden");
       sessionStorage.setItem("imoni_loaded", "1");
-    }, 3200);
+    }, 3100);
+
     return () => {
       clearTimeout(fadeTimer);
-      clearTimeout(hideTimer);
+      clearTimeout(doneTimer);
     };
-  }, [visible]);
+  }, []);
 
-  if (!visible) return null;
+  if (phase === "hidden") return null;
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0D0F1A] transition-opacity duration-500"
-      style={{ opacity: fading ? 0 : 1 }}
+      className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0D0F1A]"
+      style={{
+        opacity: phase === "fading" ? 0 : 1,
+        transition: "opacity 0.5s ease",
+        pointerEvents: phase === "fading" ? "none" : "auto",
+      }}
     >
       <Image
         src="/imoni-logo.svg"
