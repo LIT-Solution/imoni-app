@@ -38,10 +38,10 @@ export default function AcheteurHero() {
             </div>
 
             <div className="reveal-left reveal-delay-1">
-              <h1 className="text-3xl sm:text-4xl lg:text-[3.5rem] font-extrabold text-white leading-[1.08]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-[3.5rem] font-extrabold text-white leading-[1.08]">
                 Ne cherchez plus.
               </h1>
-              <h1 className="text-3xl sm:text-4xl lg:text-[3.5rem] font-extrabold leading-[1.08]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-[3.5rem] font-extrabold leading-[1.08]">
                 <span className="text-white">Soyez </span>
                 <span className="bg-linear-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00] bg-clip-text text-transparent">trouvé.</span>
               </h1>
@@ -83,7 +83,7 @@ export default function AcheteurHero() {
             <div className="relative">
               {/* Phone */}
               <div
-                className="relative w-52 sm:w-75 lg:w-100 h-72 sm:h-100 lg:h-140"
+                className="relative w-52 sm:w-75 lg:w-80 xl:w-100 h-72 sm:h-100 lg:h-110 xl:h-140"
                 style={{ transform: "rotateY(-20deg) rotateX(3deg)", transformStyle: "preserve-3d", filter: "drop-shadow(0 0 40px rgba(100, 50, 180, 0.5)) drop-shadow(0 20px 60px rgba(0, 0, 0, 0.6)) contrast(1.1) brightness(1.05)" }}
               >
                 <Image

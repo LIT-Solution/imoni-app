@@ -25,7 +25,7 @@ export default function InvestisseurHero() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(to right, rgba(13,15,26,0.97) 0%, rgba(13,15,26,0.9) 35%, rgba(13,15,26,0.4) 60%, transparent 100%)" }} />
       </div>
 
-      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-56 pt-24 sm:pt-28 pb-12 sm:pb-16">
+      <div className="relative z-10 w-full px-4 sm:px-6 lg:px-32 xl:px-56 pt-24 sm:pt-28 pb-12 sm:pb-16">
         <div className="lg:max-w-[50%]">
 
           {/* Gauche — texte */}
@@ -38,13 +38,13 @@ export default function InvestisseurHero() {
             </div>
 
             <div className="reveal-left reveal-delay-1">
-              <h1 className="text-3xl sm:text-4xl lg:text-[3.4rem] font-extrabold text-white leading-[1.08]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-[3.4rem] font-extrabold text-white leading-[1.08]">
                 Votre stratégie
               </h1>
-              <h1 className="text-3xl sm:text-4xl lg:text-[3.4rem] font-extrabold text-white leading-[1.08] mt-1">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-[3.4rem] font-extrabold text-white leading-[1.08] mt-1">
                 mérite les bonnes
               </h1>
-              <h1 className="text-3xl sm:text-4xl lg:text-[3.4rem] font-extrabold leading-[1.08] mt-1">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-[3.4rem] font-extrabold leading-[1.08] mt-1">
                 <span className="text-[#8B5CF6]">opportunités.</span>
               </h1>
             </div>

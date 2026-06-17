@@ -12,7 +12,7 @@ export default function EcosystemSection() {
       <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="reveal-scale text-center mb-8 sm:mb-14">
-          <h2 className="text-2xl sm:text-3xl lg:text-[2.6rem] font-extrabold text-[#0D0F1A] leading-tight">
+          <h2 className="text-2xl sm:text-3xl lg:text-[2.2rem] xl:text-[2.6rem] font-extrabold text-[#0D0F1A] leading-tight">
             Un écosystème immobilier{" "}
             <span className="bg-linear-to-r from-[#E91E8C] via-[#FF4D6D] to-[#FF8C00] bg-clip-text text-transparent">collaboratif</span>
             <br />

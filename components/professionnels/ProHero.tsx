@@ -52,10 +52,10 @@ export default function ProHero() {
             </div>
 
             <div className="reveal-left reveal-delay-1">
-              <h1 className="text-3xl sm:text-4xl lg:text-[3.5rem] font-extrabold text-white leading-[1.08]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-[3.5rem] font-extrabold text-white leading-[1.08]">
                 Imoni,
               </h1>
-              <h1 className="text-3xl sm:text-4xl lg:text-[3.5rem] font-extrabold leading-[1.08]">
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.8rem] xl:text-[3.5rem] font-extrabold leading-[1.08]">
                 <span className="text-white">votre passerelle{" "}</span>
                 <br />
                 <span className="bg-linear-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00] bg-clip-text text-transparent">
@@ -85,7 +85,7 @@ export default function ProHero() {
           {/* Right column — phone mockup + badge */}
           <div className="reveal-right reveal-delay-2 relative flex justify-center items-center mt-2 lg:mt-4 lg:-ml-12">
             <div
-              className="relative w-56 sm:w-80 lg:w-150 h-72 sm:h-105 lg:h-200"
+              className="relative w-56 sm:w-80 lg:w-110 xl:w-130 2xl:w-150 h-72 sm:h-105 lg:h-150 xl:h-175 2xl:h-200"
               style={{ filter: "drop-shadow(0 20px 60px rgba(0, 0, 0, 0.4))" }}
             >
               <Image
@@ -105,7 +105,7 @@ export default function ProHero() {
               className="absolute -right-2 bottom-8 sm:-right-4 sm:bottom-12 lg:-right-20 lg:bottom-24 -z-10"
               style={{ animation: "breathe1 4s ease-in-out infinite" }}
             >
-              <div className="w-36 h-36 sm:w-48 sm:h-48 lg:w-68 lg:h-68 rounded-full bg-white shadow-2xl shadow-black/20 flex flex-col items-center justify-center text-center">
+              <div className="w-36 h-36 sm:w-48 sm:h-48 lg:w-56 lg:h-56 xl:w-68 xl:h-68 rounded-full bg-white shadow-2xl shadow-black/20 flex flex-col items-center justify-center text-center">
                 <p className="font-extrabold text-base sm:text-xl lg:text-2xl leading-tight bg-linear-to-r from-[#8B5CF6] via-[#E91E8C] to-[#FF8C00] bg-clip-text text-transparent">
                   3 MOIS
                 </p>

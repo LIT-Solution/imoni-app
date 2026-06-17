@@ -45,7 +45,7 @@ export default function PartenairesHero() {
         </div>
       </div>
 
-      <div className="relative z-10 w-full pl-0 sm:pl-12 lg:pl-36 pr-4">
+      <div className="relative z-10 w-full pl-0 sm:pl-12 lg:pl-20 xl:pl-36 pr-4">
         <div className="grid lg:grid-cols-[3fr_2fr] gap-8 items-center">
 
           {/* Gauche — texte */}
@@ -57,7 +57,7 @@ export default function PartenairesHero() {
             </div>
 
             <div>
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-[#0D0F1A] leading-[1.05]">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-[#0D0F1A] leading-[1.05]">
                 Devenez partenaire<br /><span className="text-[#E91E8C]">Imoni.</span>
               </h1>
               <p className="text-base sm:text-xl font-semibold text-[#0D0F1A] mt-4 sm:mt-5 leading-snug">
