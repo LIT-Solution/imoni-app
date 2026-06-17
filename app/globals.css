@@ -30,6 +30,12 @@ body {
   color: #171717;
 }
 
+/* ── Splash screen bar ── */
+@keyframes splash-bar {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
 /* ── Breathe animation (floating cards) ── */
 @keyframes breathe1 {
   0%, 100% { transform: translateY(0) rotate(0deg) scale(1) !important; }
